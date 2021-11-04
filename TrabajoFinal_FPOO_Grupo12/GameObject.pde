@@ -9,6 +9,5 @@ abstract class GameObject {
   protected PVector posicion;
   //---------Zona de Operaciones---------//
   /** Método que permite dibujar los objetos en el lienzo */
-  public abstract void display();
   //public abstract void display();
 }
