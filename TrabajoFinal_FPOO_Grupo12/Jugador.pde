@@ -20,8 +20,27 @@ class Jugador extends FrameObject {
   public void esconderCanasta() {
   }
   /** Método que permite detectar si hay colisión entre el jugador y las frutas */
-  public void colisionarFruta(Fruta arregloFruta, FrutaPodrida arregloFrutaPodrida) {
+  public void colisionarF(Fruta fruta) {
+    boolean colisionar = false;
+    PVector f = fruta.getPosicion();
+    
+    if (this.posicion.y <= f.y) {
+      colisionar = true;
+      println("Toma la fruta");
+    }
   }
+    /** Método que permite detectar si hay colisión entre el jugador y las frutas podridas */
+  public void colisionarFp(FrutaPodrida frutapodrida) {
+    boolean colisionar = false;
+    PVector fp = frutapodrida.getPosicion();
+    
+    if (this.posicion.y <= fp.y) {
+      colisionar = true;
+      println("No Tomar la fruta");
+    }
+  }
+
+
   // --------Zona de Métodos Accesores-------- //
   public PVector getPosicion() { // Permite obtener la posición del jugador
     return this.posicion; // Retorna la posicion actual

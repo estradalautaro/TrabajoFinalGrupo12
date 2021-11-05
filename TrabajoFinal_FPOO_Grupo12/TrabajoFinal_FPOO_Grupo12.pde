@@ -15,6 +15,8 @@ public void draw() {
   jugador.display();
   jugador.mover();
   jugador.esconderCanasta();
+  jugador.colisionarF(fruta);
+  jugador.colisionarFp(frutapodrida);
   fruta.display();
   fruta.caer();
   frutapodrida.display();
