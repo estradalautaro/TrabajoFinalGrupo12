@@ -1,5 +1,5 @@
 /** Representa al jugador en el juego */
-class Jugador extends GameObject {
+class Jugador extends FrameObject {
   //---------Zona de declaración de Variables---------//
   /** Se declara el arreglo del objeto de la clase Regla */
   private ArrayList <Regla>regla;

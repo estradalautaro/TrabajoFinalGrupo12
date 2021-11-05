@@ -1,5 +1,5 @@
 /** Representa las frutas en el juego */
-class Fruta extends GameObject {
+class Fruta extends FrameObject {
   //---------Zona de declaración de Variables---------//
   /** Se declara la variable "valorPuntaje" de tipo int */
   private int valorPuntaje;

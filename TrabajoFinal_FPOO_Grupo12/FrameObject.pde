@@ -1,4 +1,4 @@
-/** Representa los sprites en el juego */
+/** Representa la clase de la que se obtendrán los sprites en el juego */
 class FrameObject extends GameObject {
   //---------Zona de declaración de Variables---------//
   /** Se declara la variable "sprite" de tipo PImage */
