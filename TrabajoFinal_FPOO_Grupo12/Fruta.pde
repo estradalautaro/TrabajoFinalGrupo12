@@ -3,8 +3,6 @@ class Fruta extends FrameObject {
   //---------Zona de declaración de Variables---------//
   /** Se declara la variable "valorPuntaje" de tipo int */
   private int valorPuntaje;
-  /** Se declara la variable "velocidad" de tipo float */
-  private float velocidad;
   /** Se declara el arreglo del objeto de la clase Regla */
   private ArrayList <Regla>regla;
   //---------Zona de Operaciones---------//
@@ -18,12 +16,5 @@ class Fruta extends FrameObject {
     if (this.posicion.y <= height) {
       this.posicion.y ++;
     }
-  }
-  // --------Zona de Métodos Accesores-------- //
-  public PVector getPosicion() { // Permite obtener la posición del objeto fruta
-    return this.posicion; // Retorna la posicion actual
-  }
-  public void setPosicion(PVector posicion) { // Permite colocar la posicion del objeto fruta
-    this.posicion = posicion; // Se prepara la variable "posicion" para su posterior utilización
   }
 }
