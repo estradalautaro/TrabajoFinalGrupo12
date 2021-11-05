@@ -14,27 +14,16 @@ public void setup() {
 }
 /** Metodo draw*/
 public void draw() {
-<<<<<<< HEAD
   background(0); // Se establece el color del lienzo
   jugador.display(); //Ejecuta el método "display()" del objeto "jugador"
   jugador.mover(); //Ejecuta el método "mover()" del objeto "jugador"
   jugador.esconderCanasta(); //Ejecuta el método "esconderCanasta()" del objeto "jugador"
+  jugador.colisionarF(fruta);//Ejecuta el metodo "colisionarF()" del objeto "jugador"
+  jugador.colisionarFp(frutapodrida); //Ejecuta el metodo "colisionarF()" del objeto "jugador"
   fruta.display(); //Ejecuta el método "display()" del objeto "fruta"
   fruta.caer(); //Ejecuta el método "caer()" del objeto "fruta"
   fruta1.display(); //Ejecuta el método "display()" del objeto "fruta1"
   fruta1.caer(); //Ejecuta el método "caer()" del objeto "fruta1"
   frutapodrida.display(); //Ejecuta el método "display()" del objeto "frutapodrida"
   frutapodrida.caer(); //Ejecuta el método "caer()" del objeto "frutapodrida"
-=======
-  background(0);
-  jugador.display();
-  jugador.mover();
-  jugador.esconderCanasta();
-  jugador.colisionarF(fruta);
-  jugador.colisionarFp(frutapodrida);
-  fruta.display();
-  fruta.caer();
-  frutapodrida.display();
-  frutapodrida.caer();
->>>>>>> 9af0ade0c75069756fb758a3b45a6375fd45a35c
 }
