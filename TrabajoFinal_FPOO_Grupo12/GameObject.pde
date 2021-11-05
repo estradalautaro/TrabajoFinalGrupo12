@@ -8,21 +8,21 @@ abstract class GameObject {
   //---------Zona de Operaciones---------//
   /** Método que permite dibujar los objetos en el lienzo */
   public abstract void display();
-  
+
   //--------Zona de Métodos Accesores--------//
-  public PVector getPosicion(){ 
-    return this.posicion; 
+  public PVector getPosicion() { // Permite obtener la posición del objeto
+    return this.posicion; // Retorna la posicion actual
   }
-  
-  public void setPosicion(PVector posicion){ 
-    this.posicion = posicion; 
+
+  public void setPosicion(PVector posicion) { // Permite colocar la posicion del objeto
+    this.posicion = posicion; // Se le asigna a esta posición, el nuevo valor de la posición
   }
-  
-  public float getVelocidad(){ 
-    return this.velocidad; 
+
+  public float getVelocidad() { // Permite obtener la velocidad del objeto
+    return this.velocidad; // Retorna la velocidad actual
   }
-  
-  public void setVelocidad(float velocidad){ 
-    this.velocidad=velocidad; 
+
+  public void setVelocidad(float velocidad) { // Permite colocar la velocidad del objeto
+    this.velocidad=velocidad; // Se le asigna a esta velocidad, el nuevo valor de la velocidad
   }
 }
