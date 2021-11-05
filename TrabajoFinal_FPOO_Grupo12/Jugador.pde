@@ -4,8 +4,15 @@ class Jugador extends FrameObject {
   /** Se declara el arreglo del objeto de la clase Regla */
   private ArrayList <Regla>regla;
   //---------Zona de Operaciones---------//
+  /** Constructor por defecto*/
+  public Jugador() {
+    this.sprite = loadImage("resources/maincharacter/maincharacter.png");
+    this.posicion = new PVector();
+  }
   /** Método que permite mover al jugador en el eje X (de izquierda a derecha, siguiendo el cursor del mouse) */
   public void mover() {
+    this.posicion.x = mouseX;
+    this.posicion.y = height-(height/4);
   }
   /** Método que deshabilita la colisión entre el jugador y las frutas (mediante el click izquierdo del mouse) */
   public void esconderCanasta() {

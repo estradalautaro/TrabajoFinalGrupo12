@@ -8,8 +8,16 @@ class Fruta extends FrameObject {
   /** Se declara el arreglo del objeto de la clase Regla */
   private ArrayList <Regla>regla;
   //---------Zona de Operaciones---------//
+  /** Constructor por defecto*/
+  public Fruta() {
+    this.sprite = loadImage("resources/fruits/manzana.png");
+    this.posicion = new PVector();
+  }
   /** Método que permite desplazar la fruta en el eje y (simula que la fruta está cayendo) */
   public void caer() {
+    if (this.posicion.y <= height) {
+      this.posicion.y ++;
+    }
   }
   // --------Zona de Métodos Accesores-------- //
   public PVector getPosicion() { // Permite obtener la posición del objeto fruta
