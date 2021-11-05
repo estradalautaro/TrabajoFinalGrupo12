@@ -10,6 +10,9 @@ class FrutaPodrida extends FrameObject {
   public FrutaPodrida() {
     this.sprite = loadImage("resources/fruits/frutapodrida.png");
     this.posicion = new PVector();
+    setHeightFrame(50);
+    setWidthFrame(50);
+    setPosicion(new PVector(int(random(20, width-20)), 0));
   }
   /** Método que permite desplazar la fruta en el eje y (simula que la fruta está cayendo) */
   public void caer() {

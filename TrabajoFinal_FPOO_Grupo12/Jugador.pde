@@ -8,6 +8,9 @@ class Jugador extends FrameObject {
   public Jugador() {
     this.sprite = loadImage("resources/maincharacter/maincharacter.png");
     this.posicion = new PVector();
+    setHeightFrame(100);
+    setWidthFrame(100);
+    setPosicion(new PVector(width/2, height/2));
   }
   /** Método que permite mover al jugador en el eje X (de izquierda a derecha, siguiendo el cursor del mouse) */
   public void mover() {
