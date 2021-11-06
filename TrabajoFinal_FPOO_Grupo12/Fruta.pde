@@ -5,8 +5,10 @@ class Fruta extends FrameObject {
   private int valorPuntaje;
   /** Se declara el arreglo del objeto de la clase Regla */
   private ArrayList <Regla>regla;
+  /** Se declara la variable "colisionF" de tipo boolean */
+  private boolean colisionF = false;
   //---------Zona de Operaciones---------//
-   /** Constructor por defecto*/
+  /** Constructor por defecto*/
   public Fruta() {
     int random = int(random(1, 8)); // Se declara la variable "random" de tipo entero y se le asigna un valor entero random entre 1 y 7
     switch(random) { // Evalúa la variable "random" para ejecutar el caso correspondiente
@@ -19,7 +21,7 @@ class Fruta extends FrameObject {
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
       }
-      
+
     case 2: // Caso 2
       {
         this.sprite = loadImage("resources/fruits/cereza.png"); // Se le asigna la imágen "cereza.png" a la variable "sprite" de tipo PImage
@@ -83,5 +85,25 @@ class Fruta extends FrameObject {
     if (this.posicion.y <= height) { // Si la posición en y de la fruta es menor o igual que el alto del lienzo, entonces
       this.posicion.y += this.velocidad; // A la posición en y se le irá aumentando el valor de la velocidad
     }
+  }
+  /** Método que permite detectar si hay colisión entre las frutas y el jugador */
+  public boolean colisionarF(Jugador jugador) {
+    if (this.posicion.x >= jugador.getPosicion().x - 15 &&
+      this.posicion.x <= jugador.getPosicion().x + 15 &&
+      this.posicion.y >= jugador.getPosicion().y - 15 &&
+      this.posicion.y <= jugador.getPosicion().y + 15) {
+      colisionF = true;
+      println("He colisionado");
+    } else if (this.posicion.y >= height-10) {
+      colisionF = true;
+    }
+    return colisionF;
+  }
+  //--------Zona de Métodos Accesores--------//
+  public int getValorPuntaje() { // Permite obtener la posición del jugador
+    return valorPuntaje; // Retorna la posicion actual
+  }
+  public void setValorPuntaje(int valorPuntaje) { // Permite establecer el ancho del frame
+    this.valorPuntaje = valorPuntaje; // Se le asigna al ancho del frame, el nuevo valor establecidp
   }
 }
