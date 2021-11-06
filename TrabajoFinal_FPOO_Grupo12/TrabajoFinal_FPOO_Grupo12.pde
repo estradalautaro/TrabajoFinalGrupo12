@@ -21,7 +21,8 @@ public void draw() {
   jugador.mover(); //Ejecuta el método "mover()" del objeto "jugador"
   jugador.esconderCanasta(); //Ejecuta el método "esconderCanasta()" del objeto "jugador"
   jugador.colisionarF(fruta);//Ejecuta el metodo "colisionarF()" del objeto "jugador"
-  jugador.colisionarFp(frutapodrida); //Ejecuta el metodo "colisionarF()" del objeto "jugador"
+  jugador.colisionarF(fruta1);
+  jugador.colisionarFP(frutapodrida);
   fruta.display(); //Ejecuta el método "display()" del objeto "fruta"
   fruta.caer(); //Ejecuta el método "caer()" del objeto "fruta"
   fruta1.display(); //Ejecuta el método "display()" del objeto "fruta1"
