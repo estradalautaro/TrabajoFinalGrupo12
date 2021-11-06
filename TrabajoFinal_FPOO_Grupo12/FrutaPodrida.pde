@@ -22,13 +22,14 @@ class FrutaPodrida extends FrameObject {
   }
   /** Método que permite detectar si hay colisión entre las frutas podridas y el jugador */
   public boolean colisionarFP(Jugador jugador) {
-    if (frutaspodridas.getPosicion().x >= jugador.getPosicion().x - 15 &&
-      frutaspodridas.getPosicion().x <= jugador.getPosicion().x + 15 &&
-      frutaspodridas.getPosicion().y >= jugador.getPosicion().y - 15 &&
-      frutaspodridas.getPosicion().y <= jugador.getPosicion().y + 15) {
+    if (this.posicion.x >= jugador.getPosicion().x - 15 &&
+      this.posicion.x <= jugador.getPosicion().x + 15 &&
+      this.posicion.y >= jugador.getPosicion().y - 15 &&
+      this.posicion.y <= jugador.getPosicion().y + 15) {
       colisionFP = true;
       println("He colisionado a la mala");
-      noLoop();
+    } else if (this.posicion.y >= height-10) {
+      colisionFP = true;
     }
     return colisionFP;
   }

@@ -15,7 +15,7 @@ public class ListaDeFrutaPodrida {
   }
   /**Función que permite remover una fruta podrida */
   public void removerFrutaPodrida(int posEnLista) {
-    if (frutasPodridas.get(posEnLista).colisionarFP(jugador) && posEnLista<frutasPodridas.size()) {
+    if (frutasPodridas.get(posEnLista).colisionarFP(jugador) && posEnLista<frutasPodridas.size()-1) {
       frutasPodridas.remove(posEnLista);
     }
   }

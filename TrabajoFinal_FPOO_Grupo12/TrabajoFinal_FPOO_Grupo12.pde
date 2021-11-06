@@ -1,6 +1,7 @@
 //---------Zona de declaración de Variables---------//
 /** Se declara la variable "fondo" del tipo "PImage" */
 PImage fondo;
+int tiempo;
 //---------Zona de declaración de Objetos---------//
 private Jugador jugador; //Se declara el objeto "jugador" de la clase "Jugador"
 private ListaDeFruta frutas;
@@ -13,9 +14,6 @@ public void setup() {
   jugador = new Jugador(); //Se instancia el objeto "jugador" de clase "Jugador" que posee un constructor por defecto
   frutas = new ListaDeFruta();
   frutasPodridas = new ListaDeFrutaPodrida();
-  //frutas = new Fruta(); //Se instancia el objeto "fruta" de clase "Fruta" que posee un constructor por defecto
-  //fruta1 = new Fruta(); //Se instancia el objeto "fruta1" de clase "Fruta" que posee un constructor por defecto
-  //frutapodrida = new FrutaPodrida(); //Se instancia el objeto "frutapodrida" de clase "FrutaPodrida" que posee un constructor por defecto
 }
 /** Metodo draw*/
 public void draw() {
@@ -23,6 +21,12 @@ public void draw() {
   jugador.display(); //Ejecuta el método "display()" del objeto "jugador"
   jugador.mover(); //Ejecuta el método "mover()" del objeto "jugador"
   jugador.esconderCanasta(); //Ejecuta el método "esconderCanasta()" del objeto "jugador"
+
+  if (millis() - tiempo > 500) {
+    frutas.agregarFruta();
+    frutasPodridas.agregarFrutaPodrida();
+    tiempo = millis();
+  }
 
   int indiceFrutaBorrar=-1;
   for (int i=0; i<frutas.tamanioLista(); i++) {
@@ -48,13 +52,3 @@ public void draw() {
     frutasPodridas.removerFrutaPodrida(indiceFrutaPodridaBorrar);
   }
 }
-//fruta.colisionarF(jugador); //Ejecuta el metodo "colisionarF()" del objeto "fruta"
-//fruta1.colisionarF(jugador); //Ejecuta el metodo "colisionarF()" del objeto "fruta"
-//frutapodrida.colisionarFP(jugador); //Ejecuta el metodo "colisionarFP()" del objeto "frutapodrida"
-//fruta.display(); //Ejecuta el método "display()" del objeto "fruta"
-//fruta.caer(); //Ejecuta el método "caer()" del objeto "fruta"
-//fruta1.display(); //Ejecuta el método "display()" del objeto "fruta1"
-//fruta1.caer(); //Ejecuta el método "caer()" del objeto "fruta1"
-//frutapodrida.display(); //Ejecuta el método "display()" del objeto "frutapodrida"
-//frutapodrida.caer(); //Ejecuta el método "caer()" del objeto "frutapodrida"
-//}

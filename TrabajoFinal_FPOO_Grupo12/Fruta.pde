@@ -88,13 +88,14 @@ class Fruta extends FrameObject {
   }
   /** Método que permite detectar si hay colisión entre las frutas y el jugador */
   public boolean colisionarF(Jugador jugador) {
-    if (frutas.getPosicion().x >= jugador.getPosicion().x - 15 &&
-      frutas.getPosicion().x <= jugador.getPosicion().x + 15 &&
-      frutas.getPosicion().y >= jugador.getPosicion().y - 15 &&
-      frutas.getPosicion().y <= jugador.getPosicion().y + 15) {
+    if (this.posicion.x >= jugador.getPosicion().x - 15 &&
+      this.posicion.x <= jugador.getPosicion().x + 15 &&
+      this.posicion.y >= jugador.getPosicion().y - 15 &&
+      this.posicion.y <= jugador.getPosicion().y + 15) {
       colisionF = true;
       println("He colisionado");
-      noLoop();
+    } else if (this.posicion.y >= height-10) {
+      colisionF = true;
     }
     return colisionF;
   }
