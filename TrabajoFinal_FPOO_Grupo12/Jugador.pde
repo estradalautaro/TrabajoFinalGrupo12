@@ -19,39 +19,4 @@ class Jugador extends FrameObject {
   /** Método que deshabilita la colisión entre el jugador y las frutas (mediante el click izquierdo del mouse) */
   public void esconderCanasta() {
   }
-
-  /** Método que permite detectar si hay colisión entre el jugador y las frutas */
-  public boolean colisionarF(Fruta fruta) {
-    boolean colisionar = false; // Se instacia la variable "colisionar" en falso
-    if (fruta.getPosicion().x >= jugador.getPosicion().x - 15 &&
-      fruta.getPosicion().x <= jugador.getPosicion().x + 15 &&
-      fruta.getPosicion().y >= jugador.getPosicion().y - 15 &&
-      fruta.getPosicion().y <= jugador.getPosicion().y + 15) { 
-      colisionar = true; // Entonces la variable "colisionar" se le asigna en verdadero
-      println("He colisionado");
-      noLoop();
-    }
-    return colisionar; // Retorna la variable "colisionar"
-  }
-  /** Método que permite detectar si hay colisión entre el jugador y las frutas podridas */
- public boolean colisionarFP(FrutaPodrida frutapodrida) {
-    boolean colisionar = false; // Se instacia la variable "colisionar" en falso
-    if (frutapodrida.getPosicion().x >= jugador.getPosicion().x - 15 &&
-      frutapodrida.getPosicion().x <= jugador.getPosicion().x + 15 &&
-      frutapodrida.getPosicion().y >= jugador.getPosicion().y - 15 &&
-      frutapodrida.getPosicion().y <= jugador.getPosicion().y + 15) { 
-      colisionar = true; // Entonces la variable "colisionar" se le asigna en verdadero
-      println("He colisionado a la mala");
-    }
-    return colisionar; // Retorna la variable "colisionar"
-  }
-
-
-  // --------Zona de Métodos Accesores-------- //
-  public PVector getPosicion() { // Permite obtener la posición del jugador
-    return this.posicion; // Retorna la posicion actual
-  }
-  public void setPosicion(PVector posicion) { // Permite colocar la posicion del jugador
-    this.posicion = posicion; // Se prepara la variable "posicion" para su posterior utilización
-  }
 }

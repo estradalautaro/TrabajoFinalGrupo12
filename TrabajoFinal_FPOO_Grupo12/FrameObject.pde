@@ -15,7 +15,7 @@ class FrameObject extends GameObject {
   /** Método que permite dibujar los sprites en el lienzo */
   public void display() {
     imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
-    image(this.sprite, this.posicion.x,this.posicion.y,this.widthFrame,this.heightFrame); // Dibuja una imagen en el lienzo empleando los parámetros para su posición, anchura y altura
+    image(this.sprite, this.posicion.x, this.posicion.y, this.widthFrame, this.heightFrame); // Dibuja una imagen en el lienzo empleando los parámetros para su posición, anchura y altura
   }
   //--------Zona de Métodos Accesores--------//
   public PImage getSprite() { // Permite obtener la imagen del sprite

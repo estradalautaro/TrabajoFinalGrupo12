@@ -16,16 +16,13 @@ class Regla {
   /** Método que permite aumentar el puntaje del jugador al colisionar con una fruta */
   public void subirPuntaje() {
   }
-  /** Método que permite disminuír el puntaje del jugador al colisionar con una fruta podrida */
-  public void bajarPuntaje() {
-  }
   /** Método que permite disminuír la vida del jugador al colisionar con una fruta podrida */
   public void bajarVida() {
   }
   /** Método que permite actualizar las reglas del juego (al pasar de nivel y al perder el juego) */
   public void actualizarRegla() {
   }
-  // --------Zona de Métodos Accesores-------- //
+  //--------Zona de Métodos Accesores--------//
   public int getVidaInicial() { // Permite obtener la vida inicial del jugador
     return this.vidaInicial; // Retorna la vida inicial
   }
