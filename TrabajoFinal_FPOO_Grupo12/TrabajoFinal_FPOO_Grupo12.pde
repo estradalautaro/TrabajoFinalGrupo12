@@ -2,6 +2,8 @@
 /** Se declara la variable "fondo" del tipo "PImage" */
 PImage fondo;
 int tiempo;
+int puntos;
+
 //---------Zona de declaración de Objetos---------//
 private Jugador jugador; //Se declara el objeto "jugador" de la clase "Jugador"
 private ListaDeFruta frutas;
@@ -21,6 +23,12 @@ public void draw() {
   jugador.display(); //Ejecuta el método "display()" del objeto "jugador"
   jugador.mover(); //Ejecuta el método "mover()" del objeto "jugador"
   jugador.esconderCanasta(); //Ejecuta el método "esconderCanasta()" del objeto "jugador"
+  
+  // Cartel de puntos
+  String s = puntos + " pts.";
+  fill(0, 102, 153);
+  text(s, 10, 10, 70, 80); 
+
 
   if (millis() - tiempo > 500) {
     frutas.agregarFruta();
