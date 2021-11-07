@@ -17,7 +17,7 @@ class Fruta extends FrameObject {
         this.sprite = loadImage("resources/fruits/anana.png"); // Se le asigna la imágen "anana.png" a la variable "sprite" de tipo PImage
         this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
         setPosicion(new PVector(int(random(20, width-20)), 0)); // Se le asigna esta posición para el sprite que se creará
-        setHeightFrame(50); // Se le asigna este alto al sprite que se creará
+        setHeightFrame(60); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
       }
@@ -27,7 +27,7 @@ class Fruta extends FrameObject {
         this.sprite = loadImage("resources/fruits/cereza.png"); // Se le asigna la imágen "cereza.png" a la variable "sprite" de tipo PImage
         this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
         setPosicion(new PVector(int(random(20, width-20)), 0)); // Se le asigna esta posición para el sprite que se creará
-        setHeightFrame(50); // Se le asigna este alto al sprite que se creará
+        setHeightFrame(30); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
       }
@@ -37,8 +37,8 @@ class Fruta extends FrameObject {
         this.sprite = loadImage("resources/fruits/frutilla.png"); // Se le asigna la imágen "frutilla.png" a la variable "sprite" de tipo PImage
         this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
         setPosicion(new PVector(int(random(20, width-20)), 0)); // Se le asigna esta posición para el sprite que se creará
-        setHeightFrame(50); // Se le asigna este alto al sprite que se creará
-        setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
+        setHeightFrame(40); // Se le asigna este alto al sprite que se creará
+        setWidthFrame(30); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
       }
 
@@ -48,7 +48,7 @@ class Fruta extends FrameObject {
         this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
         setPosicion(new PVector(int(random(20, width-20)), 0)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(50); // Se le asigna este alto al sprite que se creará
-        setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
+        setWidthFrame(40); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
       }
     case 5: // Caso 5
@@ -56,8 +56,8 @@ class Fruta extends FrameObject {
         this.sprite = loadImage("resources/fruits/naranja.png"); // Se le asigna la imágen "naranja.png" a la variable "sprite" de tipo PImage
         this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
         setPosicion(new PVector(int(random(20, width-20)), 0)); // Se le asigna esta posición para el sprite que se creará
-        setHeightFrame(50); // Se le asigna este alto al sprite que se creará
-        setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
+        setHeightFrame(40); // Se le asigna este alto al sprite que se creará
+        setWidthFrame(40); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
       }
     case 6: // Caso 6
@@ -65,7 +65,7 @@ class Fruta extends FrameObject {
         this.sprite = loadImage("resources/fruits/pera.png"); // Se le asigna la imágen "pera.png" a la variable "sprite" de tipo PImage
         this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
         setPosicion(new PVector(int(random(20, width-20)), 0)); // Se le asigna esta posición para el sprite que se creará
-        setHeightFrame(50); // Se le asigna este alto al sprite que se creará
+        setHeightFrame(60); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
       }
@@ -74,7 +74,7 @@ class Fruta extends FrameObject {
         this.sprite = loadImage("resources/fruits/sandia.png"); // Se le asigna la imágen "sandia.png" a la variable "sprite" de tipo PImage
         this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
         setPosicion(new PVector(int(random(20, width-20)), 0)); // Se le asigna esta posición para el sprite que se creará
-        setHeightFrame(50); // Se le asigna este alto al sprite que se creará
+        setHeightFrame(80); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
       }
