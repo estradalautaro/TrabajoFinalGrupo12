@@ -94,7 +94,7 @@ class Fruta extends FrameObject {
       this.posicion.y <= jugador.getPosicion().y + 15) {
       colisionF = true;
       println("He colisionado");
-      puntos ++;
+      //puntos ++;
     } else if (this.posicion.y >= height-10) {
       colisionF = true;
     }

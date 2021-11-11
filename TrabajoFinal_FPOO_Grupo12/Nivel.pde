@@ -14,5 +14,4 @@ class Nivel {
   /** Método que permite dibujar los objetos en el lienzo */
   public void display() {
   }
-  
 }
