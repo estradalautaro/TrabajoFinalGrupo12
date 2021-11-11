@@ -14,7 +14,5 @@ class Nivel {
   /** Método que permite dibujar los objetos en el lienzo */
   public void display() {
   }
-  /** Método que permite terminar la partida en caso que se cumplan las condiciones de la clase Regla */
-  public void gameOver(Regla regla) {
-  }
+  
 }

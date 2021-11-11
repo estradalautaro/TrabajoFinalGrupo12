@@ -15,9 +15,7 @@ public class ListaDeFruta {
   }
   /** Función que permite remover una fruta */
   public void removerFruta(int posEnLista) {
-    if (frutas.get(posEnLista).colisionarF(jugador) && posEnLista<frutas.size()-1) {
-      frutas.remove(posEnLista);
-    }
+    frutas.remove(posEnLista);
   }
   //---------Zona de Métodos Accesores---------//
   /**Función que permite obtener el tamaño de la lista (array)*/

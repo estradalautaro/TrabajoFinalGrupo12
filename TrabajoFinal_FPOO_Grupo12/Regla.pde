@@ -22,6 +22,9 @@ class Regla {
   /** Método que permite actualizar las reglas del juego (al pasar de nivel y al perder el juego) */
   public void actualizarRegla() {
   }
+  /** Método que permite terminar la partida en caso que se cumplan las condiciones de la clase Regla */
+  public void gameOver(Regla regla) {
+  }
   //--------Zona de Métodos Accesores--------//
   public int getVidaInicial() { // Permite obtener la vida inicial del jugador
     return this.vidaInicial; // Retorna la vida inicial
