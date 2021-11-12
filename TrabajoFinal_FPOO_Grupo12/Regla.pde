@@ -13,14 +13,16 @@ class Regla {
   private PVector posicionPuntaje;
   /** Se declara la variable "ImagenVida" del tipo "PImage" */
   private PImage ImagenVida;
-  
+  private boolean show;
+  private int estado;
+
   private PImage estadoInicial;
   private PImage Nivel1;
   private PImage Nivel2;
   private PImage Nivel3;
   private PImage estadoWin;
   private PImage estadoGameOver;
-  
+
   //---------Zona de declaración de Objetos---------//
   private Jugador jugador; //Se declara el objeto "jugador" de la clase "Jugador"
   private ListaDeFruta frutas;
@@ -29,6 +31,7 @@ class Regla {
   //---------Zona de Operaciones---------//
   /** Constructor de las reglas */
   public Regla() {
+    show = false;
     vidaInicial = 3;
     puntajeInicial = 0;
     posicionPuntaje = new PVector (20, 140);
@@ -38,15 +41,14 @@ class Regla {
     frutasPodridas = new ListaDeFrutaPodrida();
     ImagenVida = loadImage("resources/maincharacter/Canasta.png");
     //escenario = new Escenario(loadImage("resources/escenario/bg.jpg")); // Se le asigna la imágen "bg" a la variable "fondo" de tipo PImage
-    
+
     estadoInicial = loadImage("resources/escenario/portada.png");
     Nivel1 = loadImage("resources/escenario/nivel1.png");
     Nivel2 = loadImage("resources/escenario/nivel2.png");
     Nivel3 = loadImage("resources/escenario/nivel3.png");
-    estadoWin = loadImage("resources/escenario/Win.png");
-    estadoGameOver = loadImage("resources/escenario/GameOver2.png");
+    //estadoWin = loadImage("resources/escenario/Win.png");
+    //estadoGameOver = loadImage("resources/escenario/GameOver2.png");
     escenario = new Escenario(Nivel1);
-    
   }
   /** Método que permite dibujar los objetos en el lienzo */
   public void display() {
@@ -61,7 +63,7 @@ class Regla {
       frutasPodridas.agregarFrutaPodrida();
       tiempo = millis();
     }
-    
+
     /** Recorre el arraylist de Frutas y las remueve al colisionar con el Jugador*/
     for (int i=0; i<frutas.tamanioLista(); i++) {
       boolean colisionarJugador = false;
@@ -165,28 +167,100 @@ class Regla {
     for (int i=0; i<frutasPodridas.tamanioListaFP(); i++) {
       if (frutasPodridas.getFrutaPodrida(i).colisionarFP(jugador)) {
         vidaInicial --;
-        if (vidaInicial == 0) {
-          gameOver();
-        }
       }
     }
   }
-  /** Método que permite terminar la partida en caso que se cumplan las condiciones de la clase Regla */
+
   public void gameOver() {
-    textSize(100);
-    textMode(CENTER);
-    text("Game Over", width/2-200, height/2);
-    noLoop();
+    if (vidaInicial == 0) {
+      escenario = new Escenario(loadImage("resources/escenario/gameOver.png"));
+      escenario.setPosicion(new PVector(0, 0));
+      escenario.setTamanio(new PVector(width, height));
+      textSize(100);
+      textMode(CENTER);
+      text("Game Over", width/2-200, height/2);
+      estado = 5;
+      //noLoop();
+    }
   }
   public void winner() {
     if (puntajeInicial >= 300) {
       textSize(100);
       textMode(CENTER);
       text("Winner", width/2-200, height/2);
-      noLoop();
+      estado = 4;
     }
   }
   /** Método que permite actualizar las reglas del juego (al pasar de nivel y al perder el juego) */
   public void actualizarRegla() {
+  }
+
+  public void display1() {
+    comenzarNivel();
+    if (puntajeInicial == 100 && estado == 1) {
+      estado ++;
+      regla = new Regla();
+    }
+    if (puntajeInicial == 200  && estado == 2) {              
+      estado++;
+      regla = new Regla();
+    }
+    if (puntajeInicial == 300 && estado == 3) {
+      estado+=2;
+      regla = new Regla();
+    }
+
+    switch(estado) {
+    case 0:                                                      
+      escenario = new Escenario(loadImage("resources/escenario/portada.png"));
+      escenario.setPosicion(new PVector(0, 0));
+      escenario.setTamanio(new PVector(width, height));
+      show = false;
+      break;
+    case 1:                                                      
+      escenario = new Escenario(loadImage("resources/escenario/nivel1.png"));
+      nivel1();
+      show = true;
+      break;
+    case 2:                                                      
+      escenario = new Escenario(loadImage("resources/escenario/nivel2.png"));
+      nivel2();
+      show = true;
+      break;
+    case 3:                                                     
+      escenario = new Escenario(loadImage("resources/escenario/nivel3.png"));
+      nivel3();
+      show = true;
+      break;
+    case 4:                                                      
+      winner();
+      show = false;
+      break;
+
+    case 5:
+      gameOver();
+      show = false;
+      break;
+    }
+  }
+
+  public int comenzarNivel() {
+    if (keyPressed) {
+      if (key == ' ') {
+        regla = new Regla();
+        keyPressed = false;
+        estado = 1;
+      }
+
+      if (key == 'r' || key == 'R') {
+        regla = new Regla();
+        estado = 0;
+      }
+    }
+    return estado;
+  }
+  
+  public boolean getShow() {
+    return this.show;
   }
 }

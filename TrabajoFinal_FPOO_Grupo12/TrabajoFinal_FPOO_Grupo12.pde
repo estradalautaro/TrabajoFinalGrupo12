@@ -10,7 +10,7 @@ public void setup() {
   size(800, 500); // Se inicializa el tamaño del lienzo
   regla = new Regla();
   minim = new Minim(this);
-  cancionfondo = minim.loadFile("resources/sonido_musica/5PM - Animal Crossing_ New Leaf nivel1.mp3");  // Se carga la música de fondo. */
+  cancionfondo = minim.loadFile("resources/sonido_musica/nivel1.mp3");  // Se carga la música de fondo. */
   cancionfondo.play();
   //estado = MaquinaEstado.INSTRUCCIONANDO;
 }
@@ -22,46 +22,10 @@ public void draw() {
 
   regla.actualizarRegla();
   regla.display();
+  regla.display1();
   regla.nivel1();
 
-  switch(estado) {
-  case MaquinaEstados.INSTRUCCIONANDO:
-    {
-      text("Buscaminas", width/2, 20);
-      text("Pulsa ENTER para iniciar el juego", width/2, height-50);
-      textAlign(CENTER);
-      break;
-    }
-  case MaquinaEstados.NIVEL_1:
-    {
-      regla.nivel1();
-      regla.display();
-      break;
-    }
-  case MaquinaEstados.NIVEL_2:
-    {
-      regla.nivel2();
-      regla.display();
-      break;
-    }
-  case MaquinaEstados.NIVEL_3:
-    {
-      regla.nivel3();
-      regla.display();
-      break;
-    }
-  case MaquinaEstados.GANANDO_PARTIDA:
-    {
-      regla.actualizarRegla();
-      break;
-    }
-  case MaquinaEstados.PERDIENDO_PARTIDA:
-    {
-      regla.gameOver();
-      regla.actualizarRegla();
-      break;
-    }
-  }
+
 }
 
 

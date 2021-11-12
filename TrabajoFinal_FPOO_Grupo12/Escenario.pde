@@ -2,6 +2,7 @@ class Escenario {
   private PImage fondo;
   private PVector posicion;
   private PVector tamanio;
+  private int estado;
 
   public Escenario(PImage fondo) {
     this.fondo = fondo;
@@ -13,10 +14,16 @@ class Escenario {
     image(this.fondo, this.posicion.x, this.posicion.y, this.tamanio.x, this.tamanio.y);
   }
   //--------Zona de Métodos Accesores--------//
-  public PVector getPosicion() {
-    return this.posicion;
+  public PVector getPosicion() { // Permite obtener la posición del objeto
+    return this.posicion; // Retorna la posicion actual
+  }
+  public void setPosicion(PVector posicion) { // Permite colocar la posicion del objeto
+    this.posicion = posicion; // Se le asigna a esta posición, el nuevo valor de la posición
   }
   public PVector getTamanio() {
     return this.tamanio;
+  }
+  public void setTamanio(PVector tamanio) {
+    this.tamanio = tamanio;
   }
 }
