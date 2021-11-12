@@ -106,6 +106,7 @@ class Regla {
     for (int i=0; i<frutas.tamanioLista(); i++) {
       if (frutas.getFruta(i).colisionarF(jugador)) {
         puntajeInicial = puntajeInicial + frutas.getFruta(i).getValorPuntaje();
+        winner();
       }
     }
   }
@@ -126,6 +127,14 @@ class Regla {
     textMode(CENTER);
     text("Game Over", width/2-200, height/2);
     noLoop();
+  }
+  public void winner() {
+    if (puntajeInicial >= 10) {
+      textSize(100);
+      textMode(CENTER);
+      text("Winner", width/2-200, height/2);
+      noLoop();
+    }
   }
   /** Método que permite actualizar las reglas del juego (al pasar de nivel y al perder el juego) */
   public void actualizarRegla() {
