@@ -39,12 +39,12 @@ class Regla {
     ImagenVida = loadImage("resources/maincharacter/Canasta.png");
     //escenario = new Escenario(loadImage("resources/escenario/bg.jpg")); // Se le asigna la imágen "bg" a la variable "fondo" de tipo PImage
     
-    //estadoInicial = loadImage("resources/escenario/portada.png");
+    estadoInicial = loadImage("resources/escenario/portada.png");
     Nivel1 = loadImage("resources/escenario/nivel1.png");
-    //Nivel2 = loadImage("resources/escenario/nivel2.png");
-    //Nivel3 = loadImage("resources/escenario/nivel3.png");
-    //estadoWin = loadImage("resources/escenario/Win.png");
-    //estadoGameOver = loadImage("resources/escenario/GameOver2.png");
+    Nivel2 = loadImage("resources/escenario/nivel2.png");
+    Nivel3 = loadImage("resources/escenario/nivel3.png");
+    estadoWin = loadImage("resources/escenario/Win.png");
+    estadoGameOver = loadImage("resources/escenario/GameOver2.png");
     escenario = new Escenario(Nivel1);
     
   }
@@ -108,6 +108,7 @@ class Regla {
   }
   /** Método que permite dibujar los objetos en el lienzo */
   public void nivel1() {
+    textAlign(CORNERS);
     String nivel = "Nivel 1";
     textSize(50);
     text(nivel, 20, 60);
@@ -122,6 +123,7 @@ class Regla {
   }
   /** Método que permite dibujar los objetos en el lienzo */
   public void nivel2() {
+    textAlign(CORNERS);
     String nivel = "Nivel 2";
     textSize(50);
     text(nivel, 20, 60);
@@ -136,6 +138,7 @@ class Regla {
   }
   /** Método que permite dibujar los objetos en el lienzo */
   public void nivel3() {
+    textAlign(CORNERS);
     String nivel = "Nivel 3";
     textSize(50);
     text(nivel, 20, 60);
