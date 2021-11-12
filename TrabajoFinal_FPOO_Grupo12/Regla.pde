@@ -25,7 +25,7 @@ class Regla {
     puntajeInicial = 0;
     posicionPuntaje = new PVector (20, 140);
     posicionVida = new PVector (width-80, height-20);
-    escenario = new Escenario(loadImage("resources/escenario/nivel1.png")); // Se le asigna la imágen "bg" a la variable "fondo" de tipo PImage
+    escenario = new Escenario(loadImage("resources/escenario/bg.jpg")); // Se le asigna la imágen "bg" a la variable "fondo" de tipo PImage
     jugador = new Jugador(); //Se instancia el objeto "jugador" de clase "Jugador" que posee un constructor por defecto
     frutas = new ListaDeFruta();
     frutasPodridas = new ListaDeFrutaPodrida();
