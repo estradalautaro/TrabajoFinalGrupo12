@@ -7,6 +7,6 @@ public void setup() {
 }
 /** Metodo draw*/
 public void draw() {
-  background(regla.fondo); // Se establece el fondo del lienzo
+  background(50); // Se establece el fondo del lienzo
   regla.display();
 }

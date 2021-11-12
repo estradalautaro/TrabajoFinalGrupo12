@@ -18,16 +18,18 @@ class Regla {
   private Jugador jugador; //Se declara el objeto "jugador" de la clase "Jugador"
   private ListaDeFruta frutas;
   private ListaDeFrutaPodrida frutasPodridas;
+  private Escenario escenario;
   //---------Zona de Operaciones---------//
   /** Constructor de las reglas */
   public Regla() {
-    fondo = loadImage("resources/escenario/bg.jpg"); // Se le asigna la imágen "bg" a la variable "fondo" de tipo PImage
+    escenario = new Escenario(loadImage("resources/escenario/bg.jpg")); // Se le asigna la imágen "bg" a la variable "fondo" de tipo PImage
     jugador = new Jugador(); //Se instancia el objeto "jugador" de clase "Jugador" que posee un constructor por defecto
     frutas = new ListaDeFruta();
     frutasPodridas = new ListaDeFrutaPodrida();
   }
   /** Método que permite dibujar los objetos en el lienzo */
   public void display() {
+    escenario.display();
     jugador.display(); //Ejecuta el método "display()" del objeto "jugador"
     jugador.mover(); //Ejecuta el método "mover()" del objeto "jugador"
     jugador.esconderCanasta(); //Ejecuta el método "esconderCanasta()" del objeto "jugador"
