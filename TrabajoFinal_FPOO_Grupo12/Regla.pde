@@ -5,12 +5,12 @@ class Regla {
   private int puntajeInicial;
   /** Se declara la variable "vidaInicial" de tipo entero */
   private int vidaInicial;
+  /** Se declara la variable "tiempo" del tipo entero */
+  private int tiempo;
   /** Se declara la variable "posicionVida" de tipo PVector */
   private PVector posicionVida;
   /** Se declara la variable "posicionPuntaje" de tipo PVector */
   private PVector posicionPuntaje;
-  /** Se declara la variable "tiempo" del tipo entero */
-  private int tiempo;
   /** Se declara la variable "ImagenVida" del tipo "PImage" */
   private PImage ImagenVida;
   //---------Zona de declaración de Objetos---------//
@@ -129,7 +129,7 @@ class Regla {
     noLoop();
   }
   public void winner() {
-    if (puntajeInicial >= 10) {
+    if (puntajeInicial >= 300) {
       textSize(100);
       textMode(CENTER);
       text("Winner", width/2-200, height/2);
