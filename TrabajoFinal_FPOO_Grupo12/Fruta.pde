@@ -15,6 +15,7 @@ class Fruta extends FrameObject {
         setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(60); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
+        setValorPuntaje(4); // Se le asigna este valor de puntaje a la fruta
         break; // Finaliza el caso
       }
 
@@ -25,6 +26,7 @@ class Fruta extends FrameObject {
         setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(30); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
+        setValorPuntaje(2); // Se le asigna este valor de puntaje a la fruta
         break; // Finaliza el caso
       }
 
@@ -35,6 +37,7 @@ class Fruta extends FrameObject {
         setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(40); // Se le asigna este alto al sprite que se creará
         setWidthFrame(30); // Se le asigna este ancho al sprite que se creará
+        setValorPuntaje(3); // Se le asigna este valor de puntaje a la fruta
         break; // Finaliza el caso
       }
 
@@ -45,6 +48,7 @@ class Fruta extends FrameObject {
         setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(50); // Se le asigna este alto al sprite que se creará
         setWidthFrame(40); // Se le asigna este ancho al sprite que se creará
+        setValorPuntaje(1); // Se le asigna este valor de puntaje a la fruta
         break; // Finaliza el caso
       }
     case 5: // Caso 5
@@ -54,6 +58,7 @@ class Fruta extends FrameObject {
         setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(40); // Se le asigna este alto al sprite que se creará
         setWidthFrame(40); // Se le asigna este ancho al sprite que se creará
+        setValorPuntaje(5); // Se le asigna este valor de puntaje a la fruta
         break; // Finaliza el caso
       }
     case 6: // Caso 6
@@ -63,6 +68,7 @@ class Fruta extends FrameObject {
         setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(60); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
+        setValorPuntaje(6); // Se le asigna este valor de puntaje a la fruta
         break; // Finaliza el caso
       }
     case 7: // Caso 7
@@ -72,6 +78,7 @@ class Fruta extends FrameObject {
         setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(80); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
+        setValorPuntaje(7); // Se le asigna este valor de puntaje a la fruta
         break; // Finaliza el caso
       }
     }

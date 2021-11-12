@@ -13,7 +13,6 @@ class Regla {
   /** Se declara la variable "fondo" del tipo "PImage" */
   PImage fondo;
   int tiempo;
-  int puntos;
   //---------Zona de declaración de Objetos---------//
   private Jugador jugador; //Se declara el objeto "jugador" de la clase "Jugador"
   private ListaDeFruta frutas;
@@ -22,6 +21,8 @@ class Regla {
   //---------Zona de Operaciones---------//
   /** Constructor de las reglas */
   public Regla() {
+    puntajeInicial = 0;
+    posicionPuntaje = new PVector (20, 140);
     escenario = new Escenario(loadImage("resources/escenario/bg.jpg")); // Se le asigna la imágen "bg" a la variable "fondo" de tipo PImage
     jugador = new Jugador(); //Se instancia el objeto "jugador" de clase "Jugador" que posee un constructor por defecto
     frutas = new ListaDeFruta();
@@ -34,17 +35,20 @@ class Regla {
     jugador.mover(); //Ejecuta el método "mover()" del objeto "jugador"
     jugador.esconderCanasta(); //Ejecuta el método "esconderCanasta()" del objeto "jugador"
 
-    // Cartel de puntos
-    String s = puntos + " pts.";
-    fill(0, 102, 153);
-    text(s, 10, 10, 70, 80);
 
-
-    if (millis() - tiempo > 500) {
+    if (millis() - tiempo > 1000) {
       frutas.agregarFruta();
       frutasPodridas.agregarFrutaPodrida();
       tiempo = millis();
     }
+    String nivel = "Nivel 1";
+    textSize(50);
+    text(nivel, 20, 60);
+    String objetivo = "Objetivo 100 pts.";
+    textSize(30);
+    text(objetivo, 20, 100);
+    textSize(30);                                                    
+    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y);  
 
     /** Recorre el arraylist de Frutas y las remueve al colisionar con el Jugador*/
     for (int i=0; i<frutas.tamanioLista(); i++) {
@@ -54,6 +58,9 @@ class Regla {
         frutas.getFruta(i).display();
         frutas.getFruta(i).caer();
       } else {
+        frutas.getFruta(i).getValorPuntaje();
+        println(frutas.getFruta(i).getValorPuntaje());
+        regla.subirPuntaje();
         frutas.removerFruta(i);
       }
     }
@@ -87,6 +94,11 @@ class Regla {
   }
   /** Método que permite aumentar el puntaje del jugador al colisionar con una fruta */
   public void subirPuntaje() {
+    for (int i=0; i<frutas.tamanioLista(); i++) {
+      if (frutas.getFruta(i).colisionarF(jugador)) {
+        puntajeInicial = puntajeInicial + frutas.getFruta(i).getValorPuntaje();
+      }
+    }
   }
   /** Método que permite disminuír la vida del jugador al colisionar con una fruta podrida */
   public void bajarVida() {
