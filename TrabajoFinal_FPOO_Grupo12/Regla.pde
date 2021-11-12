@@ -107,13 +107,6 @@ class Regla {
   public void actualizarRegla() {
   }
   /** Método que permite terminar la partida en caso que se cumplan las condiciones de la clase Regla */
-  public void gameOver(Regla regla) {
-  }
-  //--------Zona de Métodos Accesores--------//
-  public int getVidaInicial() { // Permite obtener la vida inicial del jugador
-    return this.vidaInicial; // Retorna la vida inicial
-  }
-  public int getPuntajeInicial() { // Permite obtener el puntaje inicial del jugador
-    return this.puntajeInicial; // Retorna el puntaje inicial
+  public void gameOver() {
   }
 }
