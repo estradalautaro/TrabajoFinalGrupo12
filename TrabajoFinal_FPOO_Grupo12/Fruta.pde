@@ -3,10 +3,6 @@ class Fruta extends FrameObject {
   //---------Zona de declaración de Variables---------//
   /** Se declara la variable "valorPuntaje" de tipo int */
   private int valorPuntaje;
-  /** Se declara el arreglo del objeto de la clase Regla */
-  private ArrayList <Regla>regla;
-  /** Se declara la variable "colisionF" de tipo boolean */
-  private boolean colisionF = false;
   //---------Zona de Operaciones---------//
   /** Constructor por defecto*/
   public Fruta() {
@@ -16,7 +12,7 @@ class Fruta extends FrameObject {
       {
         this.sprite = loadImage("resources/fruits/anana.png"); // Se le asigna la imágen "anana.png" a la variable "sprite" de tipo PImage
         this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
-        setPosicion(new PVector(int(random(20, width-20)), 0)); // Se le asigna esta posición para el sprite que se creará
+        setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(60); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
@@ -26,7 +22,7 @@ class Fruta extends FrameObject {
       {
         this.sprite = loadImage("resources/fruits/cereza.png"); // Se le asigna la imágen "cereza.png" a la variable "sprite" de tipo PImage
         this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
-        setPosicion(new PVector(int(random(20, width-20)), 0)); // Se le asigna esta posición para el sprite que se creará
+        setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(30); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
@@ -36,7 +32,7 @@ class Fruta extends FrameObject {
       {
         this.sprite = loadImage("resources/fruits/frutilla.png"); // Se le asigna la imágen "frutilla.png" a la variable "sprite" de tipo PImage
         this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
-        setPosicion(new PVector(int(random(20, width-20)), 0)); // Se le asigna esta posición para el sprite que se creará
+        setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(40); // Se le asigna este alto al sprite que se creará
         setWidthFrame(30); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
@@ -46,7 +42,7 @@ class Fruta extends FrameObject {
       {
         this.sprite = loadImage("resources/fruits/manzana.png"); // Se le asigna la imágen "manzana.png" a la variable "sprite" de tipo PImage
         this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
-        setPosicion(new PVector(int(random(20, width-20)), 0)); // Se le asigna esta posición para el sprite que se creará
+        setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(50); // Se le asigna este alto al sprite que se creará
         setWidthFrame(40); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
@@ -55,7 +51,7 @@ class Fruta extends FrameObject {
       {
         this.sprite = loadImage("resources/fruits/naranja.png"); // Se le asigna la imágen "naranja.png" a la variable "sprite" de tipo PImage
         this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
-        setPosicion(new PVector(int(random(20, width-20)), 0)); // Se le asigna esta posición para el sprite que se creará
+        setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(40); // Se le asigna este alto al sprite que se creará
         setWidthFrame(40); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
@@ -64,7 +60,7 @@ class Fruta extends FrameObject {
       {
         this.sprite = loadImage("resources/fruits/pera.png"); // Se le asigna la imágen "pera.png" a la variable "sprite" de tipo PImage
         this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
-        setPosicion(new PVector(int(random(20, width-20)), 0)); // Se le asigna esta posición para el sprite que se creará
+        setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(60); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
@@ -73,7 +69,7 @@ class Fruta extends FrameObject {
       {
         this.sprite = loadImage("resources/fruits/sandia.png"); // Se le asigna la imágen "sandia.png" a la variable "sprite" de tipo PImage
         this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
-        setPosicion(new PVector(int(random(20, width-20)), 0)); // Se le asigna esta posición para el sprite que se creará
+        setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(80); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
         break; // Finaliza el caso
@@ -84,21 +80,29 @@ class Fruta extends FrameObject {
   public void caer() {
     if (this.posicion.y <= height) { // Si la posición en y de la fruta es menor o igual que el alto del lienzo, entonces
       this.posicion.y += this.velocidad; // A la posición en y se le irá aumentando el valor de la velocidad
+      posicion.y = constrain(posicion.y, regla.escenario.getPosicion().y + 10, regla.escenario.getTamanio().y - this.heightFrame/2);
     }
   }
   /** Método que permite detectar si hay colisión entre las frutas y el jugador */
   public boolean colisionarF(Jugador jugador) {
+    /** Se declara la variable "colisionF" de tipo boolean */
+    boolean colisionF = false;
     if (this.posicion.x >= jugador.getPosicion().x - 15 &&
       this.posicion.x <= jugador.getPosicion().x + 15 &&
       this.posicion.y >= jugador.getPosicion().y - 15 &&
       this.posicion.y <= jugador.getPosicion().y + 15) {
       colisionF = true;
-      println("He colisionado");
-      //puntos ++;
-    } else if (this.posicion.y >= height-10) {
-      colisionF = true;
     }
     return colisionF;
+  }
+
+  public boolean colisionarEscenarioF(Escenario escenario) {
+    /** Se declara la variable "colisionarEscenarioF" de tipo boolean */
+    boolean colisionarEscenarioF = false;
+    if (this.posicion.y >= escenario.getTamanio().y - this.heightFrame/2) {
+      colisionarEscenarioF = true;
+    }
+    return colisionarEscenarioF;
   }
   //--------Zona de Métodos Accesores--------//
   public int getValorPuntaje() { // Permite obtener la posición del jugador

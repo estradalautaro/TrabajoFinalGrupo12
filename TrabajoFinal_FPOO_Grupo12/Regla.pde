@@ -46,28 +46,43 @@ class Regla {
       tiempo = millis();
     }
 
-    int indiceFrutaBorrar=-1;
+    /** Recorre el arraylist de Frutas y las remueve al colisionar con el Jugador*/
     for (int i=0; i<frutas.tamanioLista(); i++) {
-      frutas.getFruta(i).display();
-      frutas.getFruta(i).caer();
-      if (frutas.getFruta(i).colisionarF(jugador)) {
-        indiceFrutaBorrar=i;
+      boolean colisionarJugador = false;
+      colisionarJugador = frutas.getFruta(i).colisionarF(jugador);
+      if (colisionarJugador==false) {
+        frutas.getFruta(i).display();
+        frutas.getFruta(i).caer();
+      } else {
+        frutas.removerFruta(i);
       }
     }
-    if (indiceFrutaBorrar>-1) {
-      frutas.removerFruta(indiceFrutaBorrar);
+    /** Recorre el arraylist de Frutas y las remueve al colisionar con el Escenario*/
+    for (int i=0; i<frutas.tamanioLista(); i++) {
+      boolean colisionarEscenario = false;
+      colisionarEscenario = frutas.getFruta(i).colisionarEscenarioF(escenario);
+      if (colisionarEscenario==true) {
+        frutas.removerFruta(i);
+      }
     }
-
-    int indiceFrutaPodridaBorrar=-1;
+    /** Recorre el arraylist de Frutas Podridas y las remueve al colisionar con el Jugador*/
     for (int i=0; i<frutasPodridas.tamanioListaFP(); i++) {
-      frutasPodridas.getFrutaPodrida(i).display();
-      frutasPodridas.getFrutaPodrida(i).caer();
-      if (frutasPodridas.getFrutaPodrida(i).colisionarFP(jugador)) {
-        indiceFrutaPodridaBorrar=i;
+      boolean colisionarJugadorFP = false;
+      colisionarJugadorFP = frutasPodridas.getFrutaPodrida(i).colisionarFP(jugador);
+      if (colisionarJugadorFP==false) {
+        frutasPodridas.getFrutaPodrida(i).display();
+        frutasPodridas.getFrutaPodrida(i).caer();
+      } else {
+        frutasPodridas.removerFrutaPodrida(i);
       }
     }
-    if (indiceFrutaPodridaBorrar>-1) {
-      frutasPodridas.removerFrutaPodrida(indiceFrutaPodridaBorrar);
+    /** Recorre el arraylist de Frutas Podridas y las remueve al colisionar con el Escenario*/
+    for (int i=0; i<frutasPodridas.tamanioListaFP(); i++) {
+      boolean colisionarEscenarioFP = false;
+      colisionarEscenarioFP = frutasPodridas.getFrutaPodrida(i).colisionarEscenarioFP(escenario);
+      if (colisionarEscenarioFP==true) {
+        frutasPodridas.removerFrutaPodrida(i);
+      }
     }
   }
   /** Método que permite aumentar el puntaje del jugador al colisionar con una fruta */

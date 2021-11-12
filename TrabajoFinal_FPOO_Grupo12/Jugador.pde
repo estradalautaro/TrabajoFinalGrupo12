@@ -1,8 +1,5 @@
 /** Representa al jugador en el juego */
 class Jugador extends FrameObject {
-  //---------Zona de declaración de Variables---------//
-  /** Se declara el arreglo del objeto de la clase Regla */
-  private ArrayList <Regla>regla;
   //---------Zona de Operaciones---------//
   /** Constructor por defecto*/
   public Jugador() {
@@ -15,6 +12,7 @@ class Jugador extends FrameObject {
   public void mover() {
     this.posicion.x = mouseX; // Se iguala la posición X del jugador a la posición X del mouse
     this.posicion.y = height-(height/4); // Se le asigna la posición Y del jugador a 1/4 del alto del lienzo
+    posicion.x = constrain(posicion.x, regla.escenario.getPosicion().x + 30, regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40);
   }
   /** Método que deshabilita la colisión entre el jugador y las frutas (mediante el click izquierdo del mouse) */
   public void esconderCanasta() {

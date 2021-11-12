@@ -5,8 +5,6 @@ class Nivel {
   private boolean mostrar;
   /** Se declara la variable "estado" de tipo entero */
   private int estado;
-  /** Se declara el arreglo del objeto de la clase Regla */
-  private ArrayList <Regla>regla;
   //---------Zona de Operaciones---------//
   /** Método que permite iniciar el nivel */
   public void comenzarNivel() {
