@@ -13,6 +13,14 @@ class Regla {
   private PVector posicionPuntaje;
   /** Se declara la variable "ImagenVida" del tipo "PImage" */
   private PImage ImagenVida;
+  
+  private PImage estadoInicial;
+  private PImage Nivel1;
+  private PImage Nivel2;
+  private PImage Nivel3;
+  private PImage estadoWin;
+  private PImage estadoGameOver;
+  
   //---------Zona de declaración de Objetos---------//
   private Jugador jugador; //Se declara el objeto "jugador" de la clase "Jugador"
   private ListaDeFruta frutas;
@@ -25,11 +33,20 @@ class Regla {
     puntajeInicial = 0;
     posicionPuntaje = new PVector (20, 140);
     posicionVida = new PVector (width-80, height-20);
-    escenario = new Escenario(loadImage("resources/escenario/bg.jpg")); // Se le asigna la imágen "bg" a la variable "fondo" de tipo PImage
     jugador = new Jugador(); //Se instancia el objeto "jugador" de clase "Jugador" que posee un constructor por defecto
     frutas = new ListaDeFruta();
     frutasPodridas = new ListaDeFrutaPodrida();
     ImagenVida = loadImage("resources/maincharacter/Canasta.png");
+    //escenario = new Escenario(loadImage("resources/escenario/bg.jpg")); // Se le asigna la imágen "bg" a la variable "fondo" de tipo PImage
+    
+    //estadoInicial = loadImage("resources/escenario/portada.png");
+    Nivel1 = loadImage("resources/escenario/nivel1.png");
+    //Nivel2 = loadImage("resources/escenario/nivel2.png");
+    //Nivel3 = loadImage("resources/escenario/nivel3.png");
+    //estadoWin = loadImage("resources/escenario/Win.png");
+    //estadoGameOver = loadImage("resources/escenario/GameOver2.png");
+    escenario = new Escenario(Nivel1);
+    
   }
   /** Método que permite dibujar los objetos en el lienzo */
   public void display() {
@@ -44,6 +61,7 @@ class Regla {
       frutasPodridas.agregarFrutaPodrida();
       tiempo = millis();
     }
+    
     /** Recorre el arraylist de Frutas y las remueve al colisionar con el Jugador*/
     for (int i=0; i<frutas.tamanioLista(); i++) {
       boolean colisionarJugador = false;
@@ -53,7 +71,7 @@ class Regla {
         frutas.getFruta(i).caer();
       } else {
         frutas.getFruta(i).getValorPuntaje();
-        println(frutas.getFruta(i).getValorPuntaje());
+        //println(frutas.getFruta(i).getValorPuntaje());
         regla.subirPuntaje();
         frutas.removerFruta(i);
       }
@@ -75,7 +93,7 @@ class Regla {
         frutasPodridas.getFrutaPodrida(i).caer();
       } else {
         regla.bajarVida();
-        println("Vidas/Canastas restantes: " + vidaInicial);
+        //println("Vidas/Canastas restantes: " + vidaInicial);
         frutasPodridas.removerFrutaPodrida(i);
       }
     }
@@ -88,6 +106,7 @@ class Regla {
       }
     }
   }
+  /** Método que permite dibujar los objetos en el lienzo */
   public void nivel1() {
     String nivel = "Nivel 1";
     textSize(50);
@@ -95,8 +114,36 @@ class Regla {
     String objetivo = "Objetivo 100 pts.";
     textSize(30);
     text(objetivo, 20, 100);
+    textSize(30);                                                    // Tamaño del texto que utilizará "Puntos"
+    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y);  // Texto que se mostrará, se actualizará al impactar aliens
+    imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
+    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40);
+    text("X" + vidaInicial, posicionVida.x, posicionVida.y);
+  }
+  /** Método que permite dibujar los objetos en el lienzo */
+  public void nivel2() {
+    String nivel = "Nivel 2";
+    textSize(50);
+    text(nivel, 20, 60);
+    String objetivo = "Objetivo 200 pts.";
     textSize(30);
-    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y);
+    text(objetivo, 20, 100);
+    textSize(30);                                                    // Tamaño del texto que utilizará "Puntos"
+    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y);  // Texto que se mostrará, se actualizará al impactar aliens
+    imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
+    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40);
+    text("X" + vidaInicial, posicionVida.x, posicionVida.y);
+  }
+  /** Método que permite dibujar los objetos en el lienzo */
+  public void nivel3() {
+    String nivel = "Nivel 3";
+    textSize(50);
+    text(nivel, 20, 60);
+    String objetivo = "Objetivo 300 pts.";
+    textSize(30);
+    text(objetivo, 20, 100);
+    textSize(30);                                                    // Tamaño del texto que utilizará "Puntos"
+    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y);  // Texto que se mostrará, se actualizará al impactar aliens
     imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
     image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40);
     text("X" + vidaInicial, posicionVida.x, posicionVida.y);
