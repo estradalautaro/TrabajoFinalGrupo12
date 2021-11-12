@@ -9,4 +9,5 @@ public void setup() {
 public void draw() {
   background(50); // Se establece el fondo del lienzo
   regla.display();
+  regla.nivel1();
 }
