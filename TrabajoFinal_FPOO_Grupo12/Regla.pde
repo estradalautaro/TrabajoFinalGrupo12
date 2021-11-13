@@ -16,7 +16,7 @@ class Regla {
   /** Se declara la variable "posicionPuntaje" de tipo PVector */
   private PVector posicionPuntaje;
   /** Se declara la variable "ImagenVida" del tipo "PImage" */
-  private PImage ImagenVida;
+  private PImage imagenVida;
   //---------Zona de declaración de Objetos---------//
   private Jugador jugador; //Se declara el objeto "jugador" de la clase "Jugador"
   private ListaDeFruta frutas; // Se declara el objeto "frutas" de la clase "ListaDeFruta"
@@ -25,7 +25,7 @@ class Regla {
   //---------Zona de Operaciones---------//
   /** Constructor por defecto */
   public Regla() {
-    show = false; // Se instancia el objeto "show" que estara en estado "false"   
+    show = false; // Se instancia el objeto "show" que estara en estado "false"
     vidaInicial = 3; // Se instancia el objeto "vidaInicial" que tendra el valor asignado
     puntajeInicial = 0; // Se instancia el objeto "puntajeInicial" que tendra el valor asignado
     posicionPuntaje = new PVector (20, 140); //Se instancia el objeto "posicionPuntaje" que tendra la posicion PVector asignado
@@ -33,7 +33,7 @@ class Regla {
     jugador = new Jugador(); //Se instancia el objeto "jugador" de clase "Jugador" que posee un constructor por defecto
     frutas = new ListaDeFruta();  //Se instancia el objeto "frutas" de clase "ListaDeFruta" que posee un constructor por defecto
     frutasPodridas = new ListaDeFrutaPodrida(); //Se instancia el objeto "frutasPodridas" de clase "ListaDeFrutaPodrida" que posee un constructor por defecto
-    ImagenVida = loadImage("resources/maincharacter/Canasta.png"); //Se instancia una imagen a "ImagenVida" 
+    imagenVida = loadImage("resources/maincharacter/Canasta.png"); //Se instancia una imagen a "ImagenVida"
   }
   /** Método que permite dibujar los objetos en el lienzo */
   public void display() {
@@ -43,7 +43,7 @@ class Regla {
       regla.jugador.mover(); //Ejecuta el método "mover()" del objeto "jugador"
       regla.jugador.esconderCanasta(); //Ejecuta el método "esconderCanasta()" del objeto "jugador"
       /** Recorre el arraylist de Frutas y las remueve al colisionar con el Jugador*/
-      for (int i=0; i<frutas.tamanioLista(); i++) { 
+      for (int i=0; i<frutas.tamanioLista(); i++) {
         boolean colisionarJugador = false;
         colisionarJugador = frutas.getFruta(i).colisionarF(jugador);
         if (colisionarJugador==false) {
@@ -100,9 +100,6 @@ class Regla {
     for (int i=0; i<frutasPodridas.tamanioListaFP(); i++) {
       if (frutasPodridas.getFrutaPodrida(i).colisionarFP(jugador)) {
         vidaInicial --;
-        if (vidaInicial == 0) {
-          gameOver();
-        }
       }
     }
   }
@@ -110,10 +107,10 @@ class Regla {
   public void nivel1() {
     estado = MaquinaEstados.NIVEL_1;
     textAlign(CORNERS);   // Establece la alineación actual para dibujar el texto en el rincon
-    String nivel = "Nivel 1"; 
+    String nivel = "Nivel 1";
     textSize(50); // Tamaño del texto que utilizará "Nivel 1"
     text(nivel, 20, 60); // Dibuja el texto en la pantalla de "Nivel 1"
-    String objetivo = "Objetivo 100 pts."; 
+    String objetivo = "Objetivo 100 pts.";
     textSize(30); // Tamaño del texto que utilizará "Objetivo"
     text(objetivo, 20, 100); // Dibuja el texto en la pantalla que utilizará "Objetivo"
     textSize(30); // Tamaño del texto que utilizará "Objetivo"
@@ -124,9 +121,9 @@ class Regla {
     textSize(40); // Tamaño que utilizará "Frame rate"
     text("¡¡¡Atrapa esas Frutas!!!", width/2 - 180, height - 3*7); // Texto que mostrara constantemente "¡¡¡Atrapa esas Frutas!!!" en una posicion fijada
     imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
-    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40); // Establece la "ImagenVida" en una posicion fijada
+    image(imagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40); // Establece la "ImagenVida" en una posicion fijada
     text("X" + vidaInicial, posicionVida.x, posicionVida.y); // Texto que mostrara constantemente "X" en una posicion fijada
-    escenario = new Escenario(loadImage("resources/escenario/nivel1.png")); //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto 
+    escenario = new Escenario(loadImage("resources/escenario/nivel1.png")); //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto
     if (millis() - tiempo > 1000) { // Establece el tiempo de aparicion de las frutas y frutaPodrida
       frutas.agregarFruta();
       frutasPodridas.agregarFrutaPodrida();
@@ -151,7 +148,7 @@ class Regla {
     textSize(40); // Tamaño que utilizará "Frame rate"
     text("¡¡¡Atrapa esas Frutas!!!", width/2 - 180, height - 3*7); // Texto que mostrara constantemente "¡¡¡Atrapa esas Frutas!!!" en una posicion fijada
     imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
-    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40); // Establece la "ImagenVida" en una posicion fijada
+    image(imagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40); // Establece la "ImagenVida" en una posicion fijada
     text("X" + vidaInicial, posicionVida.x, posicionVida.y); // Texto que mostrara constantemente "X" en una posicion fijada
     escenario = new Escenario(loadImage("resources/escenario/nivel2.png")); //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto
     if (millis() - tiempo > 750) { // Establece el tiempo de aparicion de las frutas y frutaPodrida
@@ -179,7 +176,7 @@ class Regla {
     textSize(40); // Tamaño que utilizará "Frame rate"
     text("¡¡¡Atrapa esas Frutas!!!", width/2 - 180, height - 3*7);  // Texto que mostrara constantemente "¡¡¡Atrapa esas Frutas!!!" en una posicion fijada
     imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
-    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40); // Establece la "ImagenVida" en una posicion fijada
+    image(imagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40); // Establece la "ImagenVida" en una posicion fijada
     text("X" + vidaInicial, posicionVida.x, posicionVida.y); // Texto que mostrara constantemente "X" en una posicion fijada
     escenario = new Escenario(loadImage("resources/escenario/nivel3.png")); //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto
     if (millis() - tiempo > 500) { // Establece el tiempo de aparicion de las frutas y frutaPodrida
@@ -193,23 +190,19 @@ class Regla {
   }
   public void winner() {
     estado = MaquinaEstados.GANANDO_PARTIDA;
-    if (puntajeInicial >= 300) { // Si, se cumple la condicion ocurre lo siguiente
-      imageMode(CORNERS); // Centra la ubicación desde la que se dibujarán las imágenes
-      escenario = new Escenario(loadImage("resources/escenario/felicidadesganaste1.png"));  //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto
-      escenario.setPosicion(new PVector(0, 0));  // se instancia "escenario" en una posicion PVector definido
-      escenario.setTamanio(new PVector(width, height)); // se instancia "escenario" en una posicion PVector definido
-      escenario.display();  //Ejecuta el método "display()" del objeto "escenario"
-    }
+    imageMode(CORNERS); // Centra la ubicación desde la que se dibujarán las imágenes
+    escenario = new Escenario(loadImage("resources/escenario/felicidadesganaste1.png"));  //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto
+    escenario.setPosicion(new PVector(0, 0));  // se instancia "escenario" en una posicion PVector definido
+    escenario.setTamanio(new PVector(width, height)); // se instancia "escenario" en una posicion PVector definido
+    escenario.display();  //Ejecuta el método "display()" del objeto "escenario"
   }
-  public void gameOver() { 
+  public void gameOver() {
     estado = MaquinaEstados.PERDIENDO_PARTIDA;
-    if (vidaInicial <= 0) { // Si, se cumple la condicion ocurre lo siguiente
-      imageMode(CORNERS); // Centra la ubicación desde la que se dibujarán las imágenes
-      escenario = new Escenario(loadImage("resources/escenario/GameOver.png")); //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto
-      escenario.setPosicion(new PVector(0, 0)); // Se instancia "escenario" en una posicion PVector definido
-      escenario.setTamanio(new PVector(width, height)); // se instancia "escenario" en una posicion PVector definido
-      escenario.display(); //Ejecuta el método "display()" del objeto "jugador"
-    }
+    imageMode(CORNERS); // Centra la ubicación desde la que se dibujarán las imágenes
+    escenario = new Escenario(loadImage("resources/escenario/GameOver.png")); //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto
+    escenario.setPosicion(new PVector(0, 0)); // Se instancia "escenario" en una posicion PVector definido
+    escenario.setTamanio(new PVector(width, height)); // se instancia "escenario" en una posicion PVector definido
+    escenario.display(); //Ejecuta el método "display()" del objeto "escenario"
   }
   /** Método que permite actualizar las reglas del juego (al pasar de nivel y al perder el juego) */
   public void actualizarRegla() {
@@ -220,20 +213,19 @@ class Regla {
     jugador = new Jugador(); //Se instancia el objeto "jugador" de clase "Jugador" que posee un constructor por defecto
     frutas = new ListaDeFruta(); //Se instancia el objeto "frutas" de clase "ListaDeFruta" que posee un constructor por defecto
     frutasPodridas = new ListaDeFrutaPodrida(); // Se instancia el objeto "frutasPodridas" de clase "ListaDeFrutaPodrida" que posee un constructor por defecto
-    ImagenVida = loadImage("resources/maincharacter/Canasta.png"); //Se instancia una imagen a "ImagenVida" 
+    imagenVida = loadImage("resources/maincharacter/Canasta.png"); //Se instancia una imagen a "ImagenVida"
   }
   public void condicionEstado() {
-    if (regla.puntajeInicial >= 100 && regla.estado == MaquinaEstados.NIVEL_1) {
+    if (regla.puntajeInicial >= 10 && regla.estado == MaquinaEstados.NIVEL_1) {
       regla.estado = MaquinaEstados.NIVEL_2;
       actualizarRegla();
     }
-    if (regla.puntajeInicial >= 200 && regla.estado == MaquinaEstados.NIVEL_2) {
+    if (regla.puntajeInicial >= 20 && regla.estado == MaquinaEstados.NIVEL_2) {
       regla.estado = MaquinaEstados.NIVEL_3;
       actualizarRegla();
     }
-    if (regla.puntajeInicial >= 300 && regla.estado == MaquinaEstados.NIVEL_3) {
+    if (regla.puntajeInicial >= 30 && regla.estado == MaquinaEstados.NIVEL_3) {
       regla.estado = MaquinaEstados.GANANDO_PARTIDA;
-      actualizarRegla();
     }
     if (regla.vidaInicial <= 0 && (regla.estado == MaquinaEstados.NIVEL_1 || regla.estado == MaquinaEstados.NIVEL_2 || regla.estado == MaquinaEstados.NIVEL_3)) {
       regla.estado = MaquinaEstados.PERDIENDO_PARTIDA;

@@ -57,10 +57,14 @@ public void draw() {
     break;
   case 4:
     regla.winner();
+    cancionNivel3.close();
     regla.show = false;
     break;
   case 5:
     regla.gameOver();
+    cancionNivel1.close();
+    cancionNivel2.close();
+    cancionNivel3.close();
     regla.show = false;
     break;
   }
@@ -72,6 +76,5 @@ public void keyPressed() {
   }
   if (keyCode == 'R' && (regla.estado == MaquinaEstados.PERDIENDO_PARTIDA || regla.estado == MaquinaEstados.GANANDO_PARTIDA)) {
     regla.estado = MaquinaEstados.INSTRUCCIONANDO;
-    regla.actualizarRegla();
   }
 }
