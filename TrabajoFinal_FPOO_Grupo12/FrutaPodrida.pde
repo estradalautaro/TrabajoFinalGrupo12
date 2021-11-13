@@ -1,7 +1,7 @@
 /** Representa las frutas podridas en el juego */
 class FrutaPodrida extends FrameObject {
   //---------Zona de Operaciones---------//
-  /** Constructor por defecto*/
+  /** Constructor por defecto */
   public FrutaPodrida() {
     this.sprite = loadImage("resources/fruits/frutapodrida.png"); // Se le asigna la imágen "frutapodrida.png" a la variable "sprite" de tipo PImage
     this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará

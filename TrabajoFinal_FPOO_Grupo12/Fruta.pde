@@ -4,7 +4,7 @@ class Fruta extends FrameObject {
   /** Se declara la variable "valorPuntaje" de tipo int */
   private int valorPuntaje;
   //---------Zona de Operaciones---------//
-  /** Constructor por defecto*/
+  /** Constructor por defecto */
   public Fruta() {
     int random = int(random(1, 8)); // Se declara la variable "random" de tipo entero y se le asigna un valor entero random entre 1 y 7
     switch(random) { // Evalúa la variable "random" para ejecutar el caso correspondiente
