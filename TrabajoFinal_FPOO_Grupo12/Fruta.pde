@@ -100,6 +100,9 @@ class Fruta extends FrameObject {
       this.posicion.y <= jugador.getPosicion().y + 15) {
       colisionF = true;
     }
+    if(mousePressed){
+      colisionF = false;
+    }
     return colisionF;
   }
 
