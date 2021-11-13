@@ -33,7 +33,7 @@ class Regla {
     jugador = new Jugador(); //Se instancia el objeto "jugador" de clase "Jugador" que posee un constructor por defecto
     frutas = new ListaDeFruta();  //Se instancia el objeto "frutas" de clase "ListaDeFruta" que posee un constructor por defecto
     frutasPodridas = new ListaDeFrutaPodrida(); //Se instancia el objeto "frutasPodridas" de clase "ListaDeFrutaPodrida" que posee un constructor por defecto
-    ImagenVida = loadImage("resources/maincharacter/Canasta.png"); //Se instancia el objeto "ImagenVida" de clase "ListaDeFruta" que posee un constructor por defecto
+    ImagenVida = loadImage("resources/maincharacter/Canasta.png"); //Se instancia una imagen a "ImagenVida" 
   }
   /** Método que permite dibujar los objetos en el lienzo */
   public void display() {
@@ -193,33 +193,34 @@ class Regla {
   }
   public void winner() {
     estado = MaquinaEstados.GANANDO_PARTIDA;
-    if (puntajeInicial >= 300) {
-      escenario = new Escenario(loadImage("resources/escenario/win.png"));
-      escenario.setPosicion(new PVector(0, 0));
-      escenario.setTamanio(new PVector(width, height));
-      escenario.display();
+    if (puntajeInicial >= 300) { // Si, se cumple la condicion ocurre lo siguiente
+      imageMode(CORNERS); // Centra la ubicación desde la que se dibujarán las imágenes
+      escenario = new Escenario(loadImage("resources/escenario/felicidadesganaste1.png"));  //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto
+      escenario.setPosicion(new PVector(0, 0));  // se instancia "escenario" en una posicion PVector definido
+      escenario.setTamanio(new PVector(width, height)); // se instancia "escenario" en una posicion PVector definido
+      escenario.display();  //Ejecuta el método "display()" del objeto "escenario"
     }
   }
-  public void gameOver() {
+  public void gameOver() { 
     estado = MaquinaEstados.PERDIENDO_PARTIDA;
-    if (vidaInicial <= 0) {
-      imageMode(CORNERS);
-      escenario = new Escenario(loadImage("resources/escenario/GameOver.png"));
-      escenario.setPosicion(new PVector(0, 0));
-      escenario.setTamanio(new PVector(width, height));
-      escenario.display();
+    if (vidaInicial <= 0) { // Si, se cumple la condicion ocurre lo siguiente
+      imageMode(CORNERS); // Centra la ubicación desde la que se dibujarán las imágenes
+      escenario = new Escenario(loadImage("resources/escenario/GameOver.png")); //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto
+      escenario.setPosicion(new PVector(0, 0)); // Se instancia "escenario" en una posicion PVector definido
+      escenario.setTamanio(new PVector(width, height)); // se instancia "escenario" en una posicion PVector definido
+      escenario.display(); //Ejecuta el método "display()" del objeto "jugador"
     }
   }
   /** Método que permite actualizar las reglas del juego (al pasar de nivel y al perder el juego) */
   public void actualizarRegla() {
-    vidaInicial = 3;
-    puntajeInicial = 0;
-    posicionPuntaje = new PVector (20, 140);
-    posicionVida = new PVector (width-80, height-20);
+    vidaInicial = 3; // Se instancia el objeto "vidaInicial" que tendra el valor asignado
+    puntajeInicial = 0; // Se instancia el objeto "puntajeInicial" que tendra el valor asignado
+    posicionPuntaje = new PVector (20, 140); //Se instancia el objeto "posicionPuntaje" que tendra la posicion PVector asignado
+    posicionVida = new PVector (width-80, height-20); //Se instancia el objeto "posicionVida" que tendra la posicion PVector asignado
     jugador = new Jugador(); //Se instancia el objeto "jugador" de clase "Jugador" que posee un constructor por defecto
-    frutas = new ListaDeFruta();
-    frutasPodridas = new ListaDeFrutaPodrida();
-    ImagenVida = loadImage("resources/maincharacter/Canasta.png");
+    frutas = new ListaDeFruta(); //Se instancia el objeto "frutas" de clase "ListaDeFruta" que posee un constructor por defecto
+    frutasPodridas = new ListaDeFrutaPodrida(); // Se instancia el objeto "frutasPodridas" de clase "ListaDeFrutaPodrida" que posee un constructor por defecto
+    ImagenVida = loadImage("resources/maincharacter/Canasta.png"); //Se instancia una imagen a "ImagenVida" 
   }
   public void condicionEstado() {
     if (regla.puntajeInicial >= 100 && regla.estado == MaquinaEstados.NIVEL_1) {
