@@ -19,31 +19,31 @@ class Regla {
   private PImage ImagenVida;
   //---------Zona de declaración de Objetos---------//
   private Jugador jugador; //Se declara el objeto "jugador" de la clase "Jugador"
-  private ListaDeFruta frutas;
-  private ListaDeFrutaPodrida frutasPodridas;
-  private Escenario escenario;
+  private ListaDeFruta frutas; // Se declara el objeto "frutas" de la clase "ListaDeFruta"
+  private ListaDeFrutaPodrida frutasPodridas; // Se declara el objeto "frutasPodridas" de la clase "ListaDeFrutaPodrida"
+  private Escenario escenario; //Se declara el objeto "escenario" de la clase "Escenario"
   //---------Zona de Operaciones---------//
   /** Constructor por defecto */
   public Regla() {
-    show = false;
-    vidaInicial = 3;
-    puntajeInicial = 0;
-    posicionPuntaje = new PVector (20, 140);
-    posicionVida = new PVector (width-80, height-20);
+    show = false; // Se instancia el objeto "show" que estara en estado "false"   
+    vidaInicial = 3; // Se instancia el objeto "vidaInicial" que tendra el valor asignado
+    puntajeInicial = 0; // Se instancia el objeto "puntajeInicial" que tendra el valor asignado
+    posicionPuntaje = new PVector (20, 140); //Se instancia el objeto "posicionPuntaje" que tendra la posicion PVector asignado
+    posicionVida = new PVector (width-80, height-20); //Se instancia el objeto "posicionVida" que tendra la posicion PVector asignado
     jugador = new Jugador(); //Se instancia el objeto "jugador" de clase "Jugador" que posee un constructor por defecto
-    frutas = new ListaDeFruta();
-    frutasPodridas = new ListaDeFrutaPodrida();
-    ImagenVida = loadImage("resources/maincharacter/Canasta.png");
+    frutas = new ListaDeFruta();  //Se instancia el objeto "frutas" de clase "ListaDeFruta" que posee un constructor por defecto
+    frutasPodridas = new ListaDeFrutaPodrida(); //Se instancia el objeto "frutasPodridas" de clase "ListaDeFrutaPodrida" que posee un constructor por defecto
+    ImagenVida = loadImage("resources/maincharacter/Canasta.png"); //Se instancia el objeto "ImagenVida" de clase "ListaDeFruta" que posee un constructor por defecto
   }
   /** Método que permite dibujar los objetos en el lienzo */
   public void display() {
-    if (regla.getShow() == true) {
-      regla.escenario.display();
+    if (regla.getShow() == true) { // Si, se cumple la condicion ocurre lo siguiente
+      regla.escenario.display(); //Ejecuta el método "display()" del objeto "escenario"
       regla.jugador.display(); //Ejecuta el método "display()" del objeto "jugador"
       regla.jugador.mover(); //Ejecuta el método "mover()" del objeto "jugador"
       regla.jugador.esconderCanasta(); //Ejecuta el método "esconderCanasta()" del objeto "jugador"
       /** Recorre el arraylist de Frutas y las remueve al colisionar con el Jugador*/
-      for (int i=0; i<frutas.tamanioLista(); i++) {
+      for (int i=0; i<frutas.tamanioLista(); i++) { 
         boolean colisionarJugador = false;
         colisionarJugador = frutas.getFruta(i).colisionarF(jugador);
         if (colisionarJugador==false) {
@@ -109,8 +109,8 @@ class Regla {
   /** Método que permite dibujar los objetos en el lienzo */
   public void nivel1() {
     estado = MaquinaEstados.NIVEL_1;
-    textAlign(CORNERS);
-    String nivel = "Nivel 1";
+    textAlign(CORNERS);   // Establece la alineación actual para dibujar el texto en el rincon
+    String nivel = "Nivel 1"; 
     textSize(50);
     text(nivel, 20, 60);
     String objetivo = "Objetivo 100 pts.";
