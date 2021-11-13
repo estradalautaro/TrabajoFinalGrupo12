@@ -23,9 +23,7 @@ public void draw() {
   background(50); // Se establece el fondo del lienzo
   imageMode(CORNERS);
   //text("Frame rate: " + int(frameRate), 10, height - 3*11);
-  //regla.actualizarRegla();
-  //regla.display();
-  //regla.display1();
+  regla.condicionEstado();
   switch(regla.estado) {
   case 0:
     regla.escenario = new Escenario(regla.estadoInicial);
@@ -44,22 +42,14 @@ public void draw() {
     println("Estado 1");
     break;
   case 2:
-    regla.escenario.display();
-    regla.jugador.display(); //Ejecuta el método "display()" del objeto "jugador"
-    regla.jugador.mover(); //Ejecuta el método "mover()" del objeto "jugador"
-    regla.jugador.esconderCanasta(); //Ejecuta el método "esconderCanasta()" del objeto "jugador"
-    regla.displayFrutas();
+    regla.display();
     regla.nivel2();
     cancionNivel2.play();
     regla.show = true;
     println("Estado 2");
     break;
   case 3:
-    regla.escenario.display();
-    regla.jugador.display(); //Ejecuta el método "display()" del objeto "jugador"
-    regla.jugador.mover(); //Ejecuta el método "mover()" del objeto "jugador"
-    regla.jugador.esconderCanasta(); //Ejecuta el método "esconderCanasta()" del objeto "jugador"
-    regla.displayFrutas();
+    regla.display();
     regla.nivel3();
     cancionNivel3.play();
     regla.show = true;
@@ -78,22 +68,12 @@ public void draw() {
   }
 }
 public void keyPressed() {
-  if (keyCode == ENTER && (regla.estado == MaquinaEstados.INSTRUCCIONANDO || regla.estado == MaquinaEstados.PERDIENDO_PARTIDA || regla.estado == MaquinaEstados.GANANDO_PARTIDA)) {
+  if (keyCode == ENTER && regla.estado == MaquinaEstados.INSTRUCCIONANDO) {
     regla.estado = MaquinaEstados.NIVEL_1;
+    regla.actualizarRegla();
   }
   if (keyCode == 'R' && (regla.estado == MaquinaEstados.PERDIENDO_PARTIDA || regla.estado == MaquinaEstados.GANANDO_PARTIDA)) {
     regla.estado = MaquinaEstados.INSTRUCCIONANDO;
-  }
-  if (regla.puntajeInicial >= 10 && regla.estado == MaquinaEstados.NIVEL_1) {
-    regla.estado = MaquinaEstados.NIVEL_2;
-  }
-  if (regla.puntajeInicial >= 20 && regla.estado == MaquinaEstados.NIVEL_2) {
-    regla.estado = MaquinaEstados.NIVEL_3;
-  }
-  if (regla.puntajeInicial >= 30 && regla.estado == MaquinaEstados.NIVEL_3) {
-    regla.estado = MaquinaEstados.GANANDO_PARTIDA;
-  }
-  if (regla.vidaInicial <= 0 && (regla.estado == MaquinaEstados.NIVEL_1 || regla.estado == MaquinaEstados.NIVEL_2 || regla.estado == MaquinaEstados.NIVEL_3)) {
-    regla.estado = MaquinaEstados.GANANDO_PARTIDA;
+    regla.actualizarRegla();
   }
 }

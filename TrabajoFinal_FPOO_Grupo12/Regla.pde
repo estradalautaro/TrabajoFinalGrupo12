@@ -199,24 +199,32 @@ class Regla {
   }
   /** Método que permite actualizar las reglas del juego (al pasar de nivel y al perder el juego) */
   public void actualizarRegla() {
-    regla = new Regla();
+    vidaInicial = 3;
+    puntajeInicial = 0;
+    posicionPuntaje = new PVector (20, 140);
+    posicionVida = new PVector (width-80, height-20);
+    jugador = new Jugador(); //Se instancia el objeto "jugador" de clase "Jugador" que posee un constructor por defecto
+    frutas = new ListaDeFruta();
+    frutasPodridas = new ListaDeFrutaPodrida();
+    ImagenVida = loadImage("resources/maincharacter/Canasta.png");
   }
-  
-  //public int comenzarNivel() {
-  //  if (keyPressed) {
-  //    if (key == ' ') {
-  //      regla = new Regla();
-  //      keyPressed = false;
-  //      estado = 1;
-  //    }
-  //    if (key == 'r' || key == 'R') {
-  //      regla = new Regla();
-  //      estado = 0;
-  //    }
-  //  }
-  //  return estado;
-  //}
-
+  public void condicionEstado() {
+    if (regla.puntajeInicial >= 10 && regla.estado == MaquinaEstados.NIVEL_1) {
+      regla.estado = MaquinaEstados.NIVEL_2;
+      actualizarRegla();
+    }
+    if (regla.puntajeInicial >= 20 && regla.estado == MaquinaEstados.NIVEL_2) {
+      regla.estado = MaquinaEstados.NIVEL_3;
+      actualizarRegla();
+    }
+    if (regla.puntajeInicial >= 30 && regla.estado == MaquinaEstados.NIVEL_3) {
+      regla.estado = MaquinaEstados.GANANDO_PARTIDA;
+      actualizarRegla();
+    }
+    if (regla.vidaInicial <= 0 && (regla.estado == MaquinaEstados.NIVEL_1 || regla.estado == MaquinaEstados.NIVEL_2 || regla.estado == MaquinaEstados.NIVEL_3)) {
+      regla.estado = MaquinaEstados.PERDIENDO_PARTIDA;
+    }
+  }
   public boolean getShow() {
     return this.show;
   }
