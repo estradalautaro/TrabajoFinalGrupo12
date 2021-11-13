@@ -29,7 +29,7 @@ class Regla {
   private ListaDeFrutaPodrida frutasPodridas;
   private Escenario escenario;
   //---------Zona de Operaciones---------//
-  /** Constructor de las reglas */
+  /** Constructor por defecto */
   public Regla() {
     show = false;
     vidaInicial = 3;
@@ -40,30 +40,30 @@ class Regla {
     frutas = new ListaDeFruta();
     frutasPodridas = new ListaDeFrutaPodrida();
     ImagenVida = loadImage("resources/maincharacter/Canasta.png");
-    //escenario = new Escenario(loadImage("resources/escenario/bg.jpg")); // Se le asigna la imágen "bg" a la variable "fondo" de tipo PImage
 
     estadoInicial = loadImage("resources/escenario/portada.png");
     Nivel1 = loadImage("resources/escenario/nivel1.png");
     Nivel2 = loadImage("resources/escenario/nivel2.png");
     Nivel3 = loadImage("resources/escenario/nivel3.png");
-    //estadoWin = loadImage("resources/escenario/Win.png");
-    //estadoGameOver = loadImage("resources/escenario/GameOver2.png");
-    escenario = new Escenario(Nivel1);
+    estadoWin = loadImage("resources/escenario/win.png");
+    estadoGameOver = loadImage("resources/escenario/GameOver.png");
   }
   /** Método que permite dibujar los objetos en el lienzo */
   public void display() {
-
-    escenario.display();
-    jugador.display(); //Ejecuta el método "display()" del objeto "jugador"
-    jugador.mover(); //Ejecuta el método "mover()" del objeto "jugador"
-    jugador.esconderCanasta(); //Ejecuta el método "esconderCanasta()" del objeto "jugador"
-
+    if (regla.getShow() == true) {
+      regla.escenario.display();
+      regla.jugador.display(); //Ejecuta el método "display()" del objeto "jugador"
+      regla.jugador.mover(); //Ejecuta el método "mover()" del objeto "jugador"
+      regla.jugador.esconderCanasta(); //Ejecuta el método "esconderCanasta()" del objeto "jugador"
+      regla.displayFrutas();
+    }
+  }
+  public void displayFrutas() {
     if (millis() - tiempo > 1000) {
       frutas.agregarFruta();
       frutasPodridas.agregarFrutaPodrida();
       tiempo = millis();
     }
-
     /** Recorre el arraylist de Frutas y las remueve al colisionar con el Jugador*/
     for (int i=0; i<frutas.tamanioLista(); i++) {
       boolean colisionarJugador = false;
@@ -108,57 +108,11 @@ class Regla {
       }
     }
   }
-  /** Método que permite dibujar los objetos en el lienzo */
-  public void nivel1() {
-    textAlign(CORNERS);
-    String nivel = "Nivel 1";
-    textSize(50);
-    text(nivel, 20, 60);
-    String objetivo = "Objetivo 100 pts.";
-    textSize(30);
-    text(objetivo, 20, 100);
-    textSize(30);                                                    // Tamaño del texto que utilizará "Puntos"
-    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y);  // Texto que se mostrará, se actualizará al impactar aliens
-    imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
-    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40);
-    text("X" + vidaInicial, posicionVida.x, posicionVida.y);
-  }
-  /** Método que permite dibujar los objetos en el lienzo */
-  public void nivel2() {
-    textAlign(CORNERS);
-    String nivel = "Nivel 2";
-    textSize(50);
-    text(nivel, 20, 60);
-    String objetivo = "Objetivo 200 pts.";
-    textSize(30);
-    text(objetivo, 20, 100);
-    textSize(30);                                                    // Tamaño del texto que utilizará "Puntos"
-    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y);  // Texto que se mostrará, se actualizará al impactar aliens
-    imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
-    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40);
-    text("X" + vidaInicial, posicionVida.x, posicionVida.y);
-  }
-  /** Método que permite dibujar los objetos en el lienzo */
-  public void nivel3() {
-    textAlign(CORNERS);
-    String nivel = "Nivel 3";
-    textSize(50);
-    text(nivel, 20, 60);
-    String objetivo = "Objetivo 300 pts.";
-    textSize(30);
-    text(objetivo, 20, 100);
-    textSize(30);                                                    // Tamaño del texto que utilizará "Puntos"
-    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y);  // Texto que se mostrará, se actualizará al impactar aliens
-    imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
-    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40);
-    text("X" + vidaInicial, posicionVida.x, posicionVida.y);
-  }
   /** Método que permite aumentar el puntaje del jugador al colisionar con una fruta */
   public void subirPuntaje() {
     for (int i=0; i<frutas.tamanioLista(); i++) {
       if (frutas.getFruta(i).colisionarF(jugador)) {
         puntajeInicial = puntajeInicial + frutas.getFruta(i).getValorPuntaje();
-        winner();
       }
     }
   }
@@ -167,99 +121,102 @@ class Regla {
     for (int i=0; i<frutasPodridas.tamanioListaFP(); i++) {
       if (frutasPodridas.getFrutaPodrida(i).colisionarFP(jugador)) {
         vidaInicial --;
+        if (vidaInicial == 0) {
+          gameOver();
+        }
       }
     }
   }
-
-  public void gameOver() {
-    if (vidaInicial == 0) {
-      escenario = new Escenario(loadImage("resources/escenario/gameOver.png"));
-      escenario.setPosicion(new PVector(0, 0));
-      escenario.setTamanio(new PVector(width, height));
-      textSize(100);
-      textMode(CENTER);
-      text("Game Over", width/2-200, height/2);
-      estado = 5;
-      //noLoop();
-    }
+  /** Método que permite dibujar los objetos en el lienzo */
+  public void nivel1() {
+    estado = MaquinaEstados.NIVEL_1;
+    textAlign(CORNERS);
+    String nivel = "Nivel 1";
+    textSize(50);
+    text(nivel, 20, 60);
+    String objetivo = "Objetivo 100 pts.";
+    textSize(30);
+    text(objetivo, 20, 100);
+    textSize(30); // Tamaño del texto que utilizará "Puntos"
+    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y); // Texto que se mostrará, se actualizará al impactar aliens
+    imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
+    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40);
+    text("X" + vidaInicial, posicionVida.x, posicionVida.y);
+    escenario = new Escenario(Nivel1);
+  }
+  /** Método que permite dibujar los objetos en el lienzo */
+  public void nivel2() {
+    estado = MaquinaEstados.NIVEL_2;
+    textAlign(CORNERS);
+    String nivel = "Nivel 2";
+    textSize(50);
+    text(nivel, 20, 60);
+    String objetivo = "Objetivo 200 pts.";
+    textSize(30);
+    text(objetivo, 20, 100);
+    textSize(30);
+    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y);
+    imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
+    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40);
+    text("X" + vidaInicial, posicionVida.x, posicionVida.y);
+    escenario = new Escenario(Nivel2);
+  }
+  /** Método que permite dibujar los objetos en el lienzo */
+  public void nivel3() {
+    estado = MaquinaEstados.NIVEL_3;
+    textAlign(CORNERS);
+    String nivel = "Nivel 3";
+    textSize(50);
+    text(nivel, 20, 60);
+    String objetivo = "Objetivo 300 pts.";
+    textSize(30);
+    text(objetivo, 20, 100);
+    textSize(30);
+    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y);
+    imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
+    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40);
+    text("X" + vidaInicial, posicionVida.x, posicionVida.y);
+    escenario = new Escenario(Nivel3);
   }
   public void winner() {
+    estado = MaquinaEstados.GANANDO_PARTIDA;
     if (puntajeInicial >= 300) {
-      textSize(100);
-      textMode(CENTER);
-      text("Winner", width/2-200, height/2);
-      estado = 4;
+      escenario = new Escenario(estadoWin);
+      escenario.setPosicion(new PVector(0, 0));
+      escenario.setTamanio(new PVector(width, height));
+      escenario.display();
+    }
+  }
+  public void gameOver() {
+    estado = MaquinaEstados.PERDIENDO_PARTIDA;
+    if (vidaInicial <= 0) {
+      imageMode(CORNERS);
+      escenario = new Escenario(estadoGameOver);
+      escenario.setPosicion(new PVector(0, 0));
+      escenario.setTamanio(new PVector(width, height));
+      escenario.display();
     }
   }
   /** Método que permite actualizar las reglas del juego (al pasar de nivel y al perder el juego) */
   public void actualizarRegla() {
-  }
-
-  public void display1() {
-    comenzarNivel();
-    if (puntajeInicial == 100 && estado == 1) {
-      estado ++;
-      regla = new Regla();
-    }
-    if (puntajeInicial == 200  && estado == 2) {              
-      estado++;
-      regla = new Regla();
-    }
-    if (puntajeInicial == 300 && estado == 3) {
-      estado+=2;
-      regla = new Regla();
-    }
-
-    switch(estado) {
-    case 0:                                                      
-      escenario = new Escenario(loadImage("resources/escenario/portada.png"));
-      escenario.setPosicion(new PVector(0, 0));
-      escenario.setTamanio(new PVector(width, height));
-      show = false;
-      break;
-    case 1:                                                      
-      escenario = new Escenario(loadImage("resources/escenario/nivel1.png"));
-      nivel1();
-      show = true;
-      break;
-    case 2:                                                      
-      escenario = new Escenario(loadImage("resources/escenario/nivel2.png"));
-      nivel2();
-      show = true;
-      break;
-    case 3:                                                     
-      escenario = new Escenario(loadImage("resources/escenario/nivel3.png"));
-      nivel3();
-      show = true;
-      break;
-    case 4:                                                      
-      winner();
-      show = false;
-      break;
-
-    case 5:
-      gameOver();
-      show = false;
-      break;
-    }
-  }
-
-  public int comenzarNivel() {
-    if (keyPressed) {
-      if (key == ' ') {
-        regla = new Regla();
-        keyPressed = false;
-        estado = 1;
-      }
-
-      if (key == 'r' || key == 'R') {
-        regla = new Regla();
-        estado = 0;
-      }
-    }
-    return estado;
+    regla = new Regla();
   }
   
+  //public int comenzarNivel() {
+  //  if (keyPressed) {
+  //    if (key == ' ') {
+  //      regla = new Regla();
+  //      keyPressed = false;
+  //      estado = 1;
+  //    }
+  //    if (key == 'r' || key == 'R') {
+  //      regla = new Regla();
+  //      estado = 0;
+  //    }
+  //  }
+  //  return estado;
+  //}
+
   public boolean getShow() {
     return this.show;
   }

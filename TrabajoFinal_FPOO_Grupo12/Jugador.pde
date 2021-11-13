@@ -1,7 +1,7 @@
 /** Representa al jugador en el juego */
 class Jugador extends FrameObject {
   //---------Zona de Operaciones---------//
-  /** Constructor por defecto*/
+  /** Constructor por defecto */
   public Jugador() {
     this.sprite = loadImage("resources/maincharacter/maincharacter.png"); // Se le asigna la imágen "maincharacter.png" a la variable "sprite" de tipo PImage
     setPosicion(new PVector(width/2, height/2)); // Se le asigna esta posición para el sprite que se creará
