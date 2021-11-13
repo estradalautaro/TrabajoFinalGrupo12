@@ -26,6 +26,9 @@ class FrutaPodrida extends FrameObject {
       this.posicion.y <= jugador.getPosicion().y + 15) {
       colisionFP = true;
     }
+     if(mousePressed){
+      colisionFP = false;
+    }
     return colisionFP;
   }
 
