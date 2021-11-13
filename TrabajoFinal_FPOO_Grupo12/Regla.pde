@@ -106,55 +106,55 @@ class Regla {
       }
     }
   }
-  /** Método que permite dibujar los objetos en el lienzo */
+  /** Método que permite dibujar los objetos de "nivel1" en el lienzo */
   public void nivel1() {
     estado = MaquinaEstados.NIVEL_1;
     textAlign(CORNERS);   // Establece la alineación actual para dibujar el texto en el rincon
     String nivel = "Nivel 1"; 
-    textSize(50);
-    text(nivel, 20, 60);
-    String objetivo = "Objetivo 100 pts.";
-    textSize(30);
-    text(objetivo, 20, 100);
-    textSize(30); // Tamaño del texto que utilizará "Puntos"
-    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y); // Texto que se mostrará, se actualizará al impactar aliens
-    imageMode(CORNERS);
-    textSize(30);
-    text("Frame rate: " + int(frameRate = 60), 10, height - 3*8);
-    textSize(40);
-    text("¡¡¡Atrapa esas Frutas!!!", width/2 - 180, height - 3*7);
+    textSize(50); // Tamaño del texto que utilizará "Nivel 1"
+    text(nivel, 20, 60); // Dibuja el texto en la pantalla de "Nivel 1"
+    String objetivo = "Objetivo 100 pts."; 
+    textSize(30); // Tamaño del texto que utilizará "Objetivo"
+    text(objetivo, 20, 100); // Dibuja el texto en la pantalla que utilizará "Objetivo"
+    textSize(30); // Tamaño del texto que utilizará "Objetivo"
+    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y); // Texto que se mostrara constantemente los "puntos" obtenidos en una posicion fijada
+    imageMode(CORNERS); // Establece la alineación actual para dibujar la imagen en el rincon
+    textSize(30);// Tamaño que utilizará "imagen"
+    text("Frame rate: " + int(frameRate = 60), 10, height - 3*8); // Texto que mostrara constantemente los "Frame rate" en una posicion fijada
+    textSize(40); // Tamaño que utilizará "Frame rate"
+    text("¡¡¡Atrapa esas Frutas!!!", width/2 - 180, height - 3*7); // Texto que mostrara constantemente "¡¡¡Atrapa esas Frutas!!!" en una posicion fijada
     imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
-    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40);
-    text("X" + vidaInicial, posicionVida.x, posicionVida.y);
-    escenario = new Escenario(loadImage("resources/escenario/nivel1.png"));
-    if (millis() - tiempo > 1000) {
+    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40); // Establece la "ImagenVida" en una posicion fijada
+    text("X" + vidaInicial, posicionVida.x, posicionVida.y); // Texto que mostrara constantemente "X" en una posicion fijada
+    escenario = new Escenario(loadImage("resources/escenario/nivel1.png")); //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto 
+    if (millis() - tiempo > 1000) { // Establece el tiempo de aparicion de las frutas y frutaPodrida
       frutas.agregarFruta();
       frutasPodridas.agregarFrutaPodrida();
       tiempo = millis();
     }
   }
-  /** Método que permite dibujar los objetos en el lienzo */
+  /** Método que permite dibujar los objetos de "nivel2" en el lienzo */
   public void nivel2() {
     estado = MaquinaEstados.NIVEL_2;
-    textAlign(CORNERS);
+    textAlign(CORNERS); // Establece la alineación actual para dibujar el texto en el rincon
     String nivel = "Nivel 2";
-    textSize(50);
-    text(nivel, 20, 60);
+    textSize(50); // Tamaño del texto que utilizará "Nivel 2"
+    text(nivel, 20, 60);  // Dibuja el texto en la pantalla de "Nivel 2"
     String objetivo = "Objetivo 200 pts.";
-    textSize(30);
-    text(objetivo, 20, 100);
-    textSize(30);
-    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y);
-    imageMode(CORNERS);
-    textSize(30);
-    text("Frame rate: " + int(frameRate = 60), 10, height - 3*8);
-    textSize(40);
-    text("¡¡¡Atrapa esas Frutas!!!", width/2 - 180, height - 3*7);
+    textSize(30); // Tamaño del texto que utilizará "Objetivo"
+    text(objetivo, 20, 100); // Dibuja el texto en la pantalla que utilizará "Objetivo"
+    textSize(30); // Tamaño del texto que utilizará "Objetivo"
+    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y); // Texto que se mostrara constantemente los "puntos" obtenidos en una posicion fijada
+    imageMode(CORNERS); // Establece la alineación actual para dibujar la imagen en el rincon
+    textSize(30); // Tamaño que utilizará "imagen"
+    text("Frame rate: " + int(frameRate = 60), 10, height - 3*8); // Texto que mostrara constantemente los "Frame rate" en una posicion fijada
+    textSize(40); // Tamaño que utilizará "Frame rate"
+    text("¡¡¡Atrapa esas Frutas!!!", width/2 - 180, height - 3*7); // Texto que mostrara constantemente "¡¡¡Atrapa esas Frutas!!!" en una posicion fijada
     imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
-    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40);
-    text("X" + vidaInicial, posicionVida.x, posicionVida.y);
-    escenario = new Escenario(loadImage("resources/escenario/nivel2.png"));
-    if (millis() - tiempo > 750) {
+    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40); // Establece la "ImagenVida" en una posicion fijada
+    text("X" + vidaInicial, posicionVida.x, posicionVida.y); // Texto que mostrara constantemente "X" en una posicion fijada
+    escenario = new Escenario(loadImage("resources/escenario/nivel2.png")); //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto
+    if (millis() - tiempo > 750) { // Establece el tiempo de aparicion de las frutas y frutaPodrida
       frutas.agregarFruta();
       frutasPodridas.agregarFrutaPodrida();
       frutasPodridas.agregarFrutaPodrida();
@@ -164,25 +164,25 @@ class Regla {
   /** Método que permite dibujar los objetos en el lienzo */
   public void nivel3() {
     estado = MaquinaEstados.NIVEL_3;
-    textAlign(CORNERS);
+    textAlign(CORNERS); // Establece la alineación actual para dibujar el texto en el rincon
     String nivel = "Nivel 3";
-    textSize(50);
-    text(nivel, 20, 60);
+    textSize(50); // Tamaño del texto que utilizará "Nivel 2"
+    text(nivel, 20, 60); // Dibuja el texto en la pantalla de "Nivel 2"
     String objetivo = "Objetivo 300 pts.";
-    textSize(30);
-    text(objetivo, 20, 100);
-    textSize(30);
-    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y);
-    imageMode(CORNERS);
-    textSize(30);
-    text("Frame rate: " + int(frameRate = 60), 10, height - 3*8);
-    textSize(40);
-    text("¡¡¡Atrapa esas Frutas!!!", width/2 - 180, height - 3*7);
+    textSize(30); // Tamaño del texto que utilizará "Objetivo"
+    text(objetivo, 20, 100); // Dibuja el texto en la pantalla que utilizará "Objetivo"
+    textSize(30); // Tamaño del texto que utilizará "Objetivo"
+    text("Puntos: " + puntajeInicial, posicionPuntaje.x, posicionPuntaje.y); // Texto que se mostrara constantemente los "puntos" obtenidos en una posicion fijada
+    imageMode(CORNERS); // Centra la ubicación desde la que se dibujarán las imágenes
+    textSize(30); // Tamaño que utilizará "imagen"
+    text("Frame rate: " + int(frameRate = 60), 10, height - 3*8); // Texto que mostrara constantemente los "Frame rate" en una posicion fijada
+    textSize(40); // Tamaño que utilizará "Frame rate"
+    text("¡¡¡Atrapa esas Frutas!!!", width/2 - 180, height - 3*7);  // Texto que mostrara constantemente "¡¡¡Atrapa esas Frutas!!!" en una posicion fijada
     imageMode(CENTER); // Centra la ubicación desde la que se dibujarán las imágenes
-    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40);
-    text("X" + vidaInicial, posicionVida.x, posicionVida.y);
-    escenario = new Escenario(loadImage("resources/escenario/nivel3.png"));
-    if (millis() - tiempo > 500) {
+    image(ImagenVida, posicionVida.x-40, posicionVida.y-10, 60, 40); // Establece la "ImagenVida" en una posicion fijada
+    text("X" + vidaInicial, posicionVida.x, posicionVida.y); // Texto que mostrara constantemente "X" en una posicion fijada
+    escenario = new Escenario(loadImage("resources/escenario/nivel3.png")); //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto
+    if (millis() - tiempo > 500) { // Establece el tiempo de aparicion de las frutas y frutaPodrida
       frutas.agregarFruta();
       frutas.agregarFruta();
       frutasPodridas.agregarFrutaPodrida();
