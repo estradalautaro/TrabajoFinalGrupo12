@@ -4,7 +4,7 @@ class FrutaPodrida extends FrameObject {
   /** Constructor por defecto */
   public FrutaPodrida() {
     this.sprite = loadImage("resources/fruits/frutapodrida.png"); // Se le asigna la imágen "frutapodrida.png" a la variable "sprite" de tipo PImage
-    this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
+    this.velocidad = random(10, 20); // Se le asigna una velocidad random al sprite que se creará
     setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
     setHeightFrame(50); // Se le asigna este alto al sprite que se creará
     setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
@@ -26,7 +26,7 @@ class FrutaPodrida extends FrameObject {
       this.posicion.y <= jugador.getPosicion().y + 15) {
       colisionFP = true;
     }
-     if(mousePressed){
+    if (mousePressed) {
       colisionFP = false;
     }
     return colisionFP;

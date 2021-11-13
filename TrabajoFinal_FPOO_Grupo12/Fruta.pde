@@ -11,7 +11,7 @@ class Fruta extends FrameObject {
     case 1: // Caso 1
       {
         this.sprite = loadImage("resources/fruits/anana.png"); // Se le asigna la imágen "anana.png" a la variable "sprite" de tipo PImage
-        this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
+        this.velocidad = random(10, 20); // Se le asigna una velocidad random al sprite que se creará
         setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(60); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
@@ -22,7 +22,7 @@ class Fruta extends FrameObject {
     case 2: // Caso 2
       {
         this.sprite = loadImage("resources/fruits/cereza.png"); // Se le asigna la imágen "cereza.png" a la variable "sprite" de tipo PImage
-        this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
+        this.velocidad = random(10, 20); // Se le asigna una velocidad random al sprite que se creará
         setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(30); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
@@ -33,7 +33,7 @@ class Fruta extends FrameObject {
     case 3: // Caso 3
       {
         this.sprite = loadImage("resources/fruits/frutilla.png"); // Se le asigna la imágen "frutilla.png" a la variable "sprite" de tipo PImage
-        this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
+        this.velocidad = random(10, 20); // Se le asigna una velocidad random al sprite que se creará
         setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(40); // Se le asigna este alto al sprite que se creará
         setWidthFrame(30); // Se le asigna este ancho al sprite que se creará
@@ -44,7 +44,7 @@ class Fruta extends FrameObject {
     case 4: // Caso 4
       {
         this.sprite = loadImage("resources/fruits/manzana.png"); // Se le asigna la imágen "manzana.png" a la variable "sprite" de tipo PImage
-        this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
+        this.velocidad = random(10, 20); // Se le asigna una velocidad random al sprite que se creará
         setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(50); // Se le asigna este alto al sprite que se creará
         setWidthFrame(40); // Se le asigna este ancho al sprite que se creará
@@ -54,7 +54,7 @@ class Fruta extends FrameObject {
     case 5: // Caso 5
       {
         this.sprite = loadImage("resources/fruits/naranja.png"); // Se le asigna la imágen "naranja.png" a la variable "sprite" de tipo PImage
-        this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
+        this.velocidad = random(10, 20); // Se le asigna una velocidad random al sprite que se creará
         setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(40); // Se le asigna este alto al sprite que se creará
         setWidthFrame(40); // Se le asigna este ancho al sprite que se creará
@@ -64,7 +64,7 @@ class Fruta extends FrameObject {
     case 6: // Caso 6
       {
         this.sprite = loadImage("resources/fruits/pera.png"); // Se le asigna la imágen "pera.png" a la variable "sprite" de tipo PImage
-        this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
+        this.velocidad = random(10, 20); // Se le asigna una velocidad random al sprite que se creará
         setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(60); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
@@ -74,7 +74,7 @@ class Fruta extends FrameObject {
     case 7: // Caso 7
       {
         this.sprite = loadImage("resources/fruits/sandia.png"); // Se le asigna la imágen "sandia.png" a la variable "sprite" de tipo PImage
-        this.velocidad = random(1, 6); // Se le asigna una velocidad random al sprite que se creará
+        this.velocidad = random(10, 20); // Se le asigna una velocidad random al sprite que se creará
         setPosicion(new PVector(int(random((regla.escenario.getPosicion().x + 30), (regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40))), regla.escenario.getPosicion().y + 10)); // Se le asigna esta posición para el sprite que se creará
         setHeightFrame(80); // Se le asigna este alto al sprite que se creará
         setWidthFrame(50); // Se le asigna este ancho al sprite que se creará
@@ -100,7 +100,7 @@ class Fruta extends FrameObject {
       this.posicion.y <= jugador.getPosicion().y + 15) {
       colisionF = true;
     }
-    if(mousePressed){
+    if (mousePressed) {
       colisionF = false;
     }
     return colisionF;

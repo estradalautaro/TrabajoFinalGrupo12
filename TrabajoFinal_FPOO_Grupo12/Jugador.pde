@@ -16,6 +16,5 @@ class Jugador extends FrameObject {
   }
   /** Método que deshabilita la colisión entre el jugador y las frutas (mediante el click izquierdo del mouse) */
   public void esconderCanasta() {
-    
   }
 }

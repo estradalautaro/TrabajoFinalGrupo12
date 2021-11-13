@@ -8,6 +8,7 @@ private AudioPlayer cancionNivel1;
 private AudioPlayer cancionNivel2;
 private AudioPlayer cancionNivel3;
 private Regla regla;
+private Escenario escenario;
 /** Configuración inicial */
 public void setup() {
   size(800, 500); // Se inicializa el tamaño del lienzo
@@ -21,49 +22,44 @@ public void setup() {
 /** Metodo draw*/
 public void draw() {
   background(50); // Se establece el fondo del lienzo
-  imageMode(CORNERS);
-  //text("Frame rate: " + int(frameRate), 10, height - 3*11);
   regla.condicionEstado();
   switch(regla.estado) {
   case 0:
-    regla.escenario = new Escenario(regla.estadoInicial);
-    regla.escenario.setPosicion(new PVector(0, 0));
-    regla.escenario.setTamanio(new PVector(width, height));
-    regla.escenario.display();
+    escenario = new Escenario(loadImage("resources/escenario/portada.png"));
+    escenario.setPosicion(new PVector(0, 0));
+    escenario.setTamanio(new PVector(width, height));
+    escenario.display();
     cancionPantalla.play();
     regla.show = false;
-    println("Estado 0");
     break;
   case 1:
     regla.display();
     regla.nivel1();
+    cancionPantalla.close();
     cancionNivel1.play();
     regla.show = true;
-    println("Estado 1");
     break;
   case 2:
     regla.display();
     regla.nivel2();
+    cancionNivel1.close();
     cancionNivel2.play();
     regla.show = true;
-    println("Estado 2");
     break;
   case 3:
     regla.display();
     regla.nivel3();
+    cancionNivel2.close();
     cancionNivel3.play();
     regla.show = true;
-    println("Estado 3");
     break;
   case 4:
     regla.winner();
     regla.show = false;
-    println("Estado 4");
     break;
   case 5:
     regla.gameOver();
     regla.show = false;
-    println("Estado 5");
     break;
   }
 }
