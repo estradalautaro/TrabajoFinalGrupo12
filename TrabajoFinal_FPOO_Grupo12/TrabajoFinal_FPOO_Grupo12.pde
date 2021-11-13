@@ -9,6 +9,8 @@ private AudioPlayer cancionPantalla;
 private AudioPlayer cancionNivel1;
 private AudioPlayer cancionNivel2;
 private AudioPlayer cancionNivel3;
+private AudioPlayer cancionVictoria;
+private AudioPlayer cancionDerrota;
 private Regla regla;
 private Escenario escenario;
 /** Configuración inicial */
@@ -20,6 +22,8 @@ public void setup() {
   cancionNivel1 = minim.loadFile("resources/sonido_musica/nivel1.mp3");  // Se carga la música de fondo. */
   cancionNivel2 = minim.loadFile("resources/sonido_musica/nivel2.mp3");  // Se carga la música de fondo. */
   cancionNivel3 = minim.loadFile("resources/sonido_musica/nivel3.mp3");  // Se carga la música de fondo. */
+  cancionVictoria = minim.loadFile("resources/sonido_musica/SoundVictory.mp3");  // Se carga la música de fondo. */
+  cancionDerrota = minim.loadFile("resources/sonido_musica/Gameover2.mp3");  // Se carga la música de fondo. */
 }
 /** Metodo draw*/
 public void draw() {
@@ -31,6 +35,8 @@ public void draw() {
     escenario.setPosicion(new PVector(0, 0));
     escenario.setTamanio(new PVector(width, height));
     escenario.display();
+    cancionVictoria.close();
+    cancionDerrota.close();
     cancionPantalla.play();
     regla.show = false;
     break;
@@ -58,6 +64,7 @@ public void draw() {
   case 4:
     regla.winner();
     cancionNivel3.close();
+    cancionVictoria.play();
     regla.show = false;
     break;
   case 5:
@@ -65,6 +72,7 @@ public void draw() {
     cancionNivel1.close();
     cancionNivel2.close();
     cancionNivel3.close();
+    cancionDerrota.play();
     regla.show = false;
     break;
   }

@@ -16,5 +16,10 @@ class Jugador extends FrameObject {
   }
   /** Método que deshabilita la colisión entre el jugador y las frutas (mediante el click izquierdo del mouse) */
   public void esconderCanasta() {
+    if (mousePressed) { // Si algún botón del mouse está siendo presionado, entonces
+      
+    } else {
+      
+    }
   }
 }
