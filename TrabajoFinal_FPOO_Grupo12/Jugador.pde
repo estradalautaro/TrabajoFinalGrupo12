@@ -12,7 +12,7 @@ class Jugador extends FrameObject {
   public void mover() {
     this.posicion.x = mouseX; // Se iguala la posición X del jugador a la posición X del mouse
     this.posicion.y = height-(height/4); // Se le asigna la posición Y del jugador a 1/4 del alto del lienzo
-    posicion.x = constrain(posicion.x, regla.escenario.getPosicion().x + 30, regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40);
+    posicion.x = constrain(posicion.x, regla.escenario.getPosicion().x + 30, regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40); // Establece un límite entre dos posiciones (x o y), en este caso x, representando los límites del escenario para el jugador
   }
   /** Método que deshabilita la colisión entre el jugador y las frutas (mediante el click izquierdo del mouse) */
   public void esconderCanasta() {

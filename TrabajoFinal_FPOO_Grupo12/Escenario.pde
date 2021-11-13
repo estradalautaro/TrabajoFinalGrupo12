@@ -10,14 +10,14 @@ class Escenario {
   //---------Zona de Operaciones---------//
   /** Constructor por defecto */
   public Escenario(PImage fondo) {
-    this.fondo = fondo;
-    this.posicion = new PVector (11, 11);
-    this.tamanio = new PVector (width - 3*4, height - 3*22);
+    this.fondo = fondo; // Se prepara la variable "fondo" para su posterior utilización
+    this.posicion = new PVector (11, 11); // Se asigna a la variable "posicion" el valor de 11 en x y 11 en y
+    this.tamanio = new PVector (width - 3*4, height - 3*22); // Se asigna a la variable "tamanio" el valor de "width - 3*4" en X y "height - 3*22" en Y
   }
   /** Método que permite dibujar el escenario sobre el lienzo */
   public void display() {
-    imageMode(CORNERS);
-    image(this.fondo, this.posicion.x, this.posicion.y, this.tamanio.x, this.tamanio.y);
+    imageMode(CORNERS); // Modifica la ubicación desde la que se dibujarán los escenarios
+    image(this.fondo, this.posicion.x, this.posicion.y, this.tamanio.x, this.tamanio.y); // Dibuja una imagen
   }
   //--------Zona de Métodos Accesores--------//
   public PVector getPosicion() { // Permite obtener la posición del escenario
