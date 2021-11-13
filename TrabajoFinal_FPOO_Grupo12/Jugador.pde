@@ -14,12 +14,16 @@ class Jugador extends FrameObject {
     this.posicion.y = height-(height/4); // Se le asigna la posición Y del jugador a 1/4 del alto del lienzo
     posicion.x = constrain(posicion.x, regla.escenario.getPosicion().x + 30, regla.escenario.getPosicion().x + regla.escenario.getTamanio().x - 40); // Establece un límite entre dos posiciones (x o y), en este caso x, representando los límites del escenario para el jugador
   }
-  /** Método que deshabilita la colisión entre el jugador y las frutas (mediante el click izquierdo del mouse) */
+  /** Método que cambia de sprite mediante el click izquierdo del mouse */
   public void esconderCanasta() {
     if (mousePressed) { // Si algún botón del mouse está siendo presionado, entonces
-      
-    } else {
-      
+      this.sprite = loadImage("resources/maincharacter/mainA_3.png"); // Se le asigna la imágen "mainA_3.png" a la variable "sprite" de tipo PImage
+      setHeightFrame(100); // Se le asigna este alto al sprite que se creará
+      setWidthFrame(70); // Se le asigna este ancho al sprite que se creará
+    } else { // Si se deja de presionar el boton del mouse, entonces
+      this.sprite = loadImage("resources/maincharacter/maincharacter.png"); // Se le asigna la imágen "maincharacter.png" a la variable "sprite" de tipo PImage
+      setHeightFrame(100); // Se le asigna este alto al sprite que se creará
+      setWidthFrame(100); // Se le asigna este ancho al sprite que se creará
     }
   }
 }
