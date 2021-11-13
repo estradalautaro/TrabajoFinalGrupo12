@@ -1,5 +1,7 @@
 //---------Zona de Librerías---------//
+/**Importa el programa ddf.minim que permite el uso de música*/
 import ddf.minim.*;
+/**Importa el programa ddf.minim.AudioPlayer que permite el uso de reproductores de música*/
 import ddf.minim.AudioPlayer;
 //---------Zona de declaración de Objetos---------//
 private Minim minim;

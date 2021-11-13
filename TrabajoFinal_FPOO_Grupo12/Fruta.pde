@@ -87,32 +87,32 @@ class Fruta extends FrameObject {
   public void caer() {
     if (this.posicion.y <= height) { // Si la posición en y de la fruta es menor o igual que el alto del lienzo, entonces
       this.posicion.y += this.velocidad; // A la posición en y se le irá aumentando el valor de la velocidad
-      posicion.y = constrain(posicion.y, regla.escenario.getPosicion().y + 10, regla.escenario.getTamanio().y - this.heightFrame/2);
+      posicion.y = constrain(posicion.y, regla.escenario.getPosicion().y + 10, regla.escenario.getTamanio().y - this.heightFrame/2); // Establece un límite entre dos posiciones (x o y), en este caso y, representando los límites en los que se caerá la fruta
     }
   }
   /** Método que permite detectar si hay colisión entre las frutas y el jugador */
   public boolean colisionarF(Jugador jugador) {
     /** Se declara la variable "colisionF" de tipo boolean */
     boolean colisionF = false;
-    if (this.posicion.x >= jugador.getPosicion().x - 15 &&
-      this.posicion.x <= jugador.getPosicion().x + 15 &&
-      this.posicion.y >= jugador.getPosicion().y - 15 &&
-      this.posicion.y <= jugador.getPosicion().y + 15) {
-      colisionF = true;
+    if (this.posicion.x >= jugador.getPosicion().x - 15 && // Detecta colisión por la izquierda
+      this.posicion.x <= jugador.getPosicion().x + 15 && // Detecta colisión por la derecha
+      this.posicion.y >= jugador.getPosicion().y - 15 && // Detecta colisión por arriba
+      this.posicion.y <= jugador.getPosicion().y + 15) { // Detecta colisión por debajo
+      colisionF = true; // Se le asigna a la variable "colisionF" el valor de true
     }
-    if (mousePressed) {
-      colisionF = false;
+    if (mousePressed) { // Si algún botón del mouse está siendo presionado, entonces
+      colisionF = false; // Se le asigna a la variable "colisionF" el valor de false
     }
-    return colisionF;
+    return colisionF; // Retorna la variable "colisionF" de tipo boolean
   }
-
+  /** Método que permite detectar si hay colisión entre las frutas y el escenario */
   public boolean colisionarEscenarioF(Escenario escenario) {
     /** Se declara la variable "colisionarEscenarioF" de tipo boolean */
     boolean colisionarEscenarioF = false;
-    if (this.posicion.y >= escenario.getTamanio().y - this.heightFrame/2) {
-      colisionarEscenarioF = true;
+    if (this.posicion.y >= escenario.getTamanio().y - this.heightFrame/2) { // Si la posición en y de la fruta es mayor o igual a la parte inferior del escenario menos su altura dividido 2, entonces
+      colisionarEscenarioF = true; // Se le asigna a la variable "colisionEscenarioF" el valor de true
     }
-    return colisionarEscenarioF;
+    return colisionarEscenarioF; // Retorna la variable "colisionEscenarioF" de tipo boolean
   }
   //--------Zona de Métodos Accesores--------//
   public int getValorPuntaje() { // Permite obtener la posición del jugador

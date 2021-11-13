@@ -1,3 +1,4 @@
+//---------Zona de Librerías---------//
 /**Importa el programa java.util que permite el uso del list*/
 import java.util.*;
 /** Representa que la clase ListaDeFruta se podra representar en el lienzo */
@@ -15,7 +16,7 @@ public class ListaDeFruta {
   }
   /** Función que permite remover una fruta */
   public void removerFruta(int posEnLista) {
-    frutas.remove(posEnLista);
+    frutas.remove(posEnLista); // Remueve un objeto fruta
   }
   //---------Zona de Métodos Accesores---------//
   /**Función que permite obtener el tamaño de la lista (array)*/
