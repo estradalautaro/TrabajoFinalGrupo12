@@ -217,15 +217,15 @@ class Regla {
   }
   /** Metodo que determina las condiciones de cambio de "MaquinaEstados" */
   public void condicionEstado() {
-    if (regla.puntajeInicial >= 10 && regla.estado == MaquinaEstados.NIVEL_1) { // Si el puntajeInicial es mayor o igual a 100, estando en MaquinaEstados.NIVEL_1, entonces
+    if (regla.puntajeInicial >= 100 && regla.estado == MaquinaEstados.NIVEL_1) { // Si el puntajeInicial es mayor o igual a 100, estando en MaquinaEstados.NIVEL_1, entonces
       regla.estado = MaquinaEstados.NIVEL_2;
       actualizarRegla();
     }
-    if (regla.puntajeInicial >= 20 && regla.estado == MaquinaEstados.NIVEL_2) { // Si el puntajeInicial es mayor o igual a 200, estando en MaquinaEstados.NIVEL_2, entonces
+    if (regla.puntajeInicial >= 200 && regla.estado == MaquinaEstados.NIVEL_2) { // Si el puntajeInicial es mayor o igual a 200, estando en MaquinaEstados.NIVEL_2, entonces
       regla.estado = MaquinaEstados.NIVEL_3;
       actualizarRegla();
     }
-    if (regla.puntajeInicial >= 30 && regla.estado == MaquinaEstados.NIVEL_3) { // Si el puntajeInicial es mayor o igual a 300, estando en MaquinaEstados.NIVEL_3, entonces
+    if (regla.puntajeInicial >= 300 && regla.estado == MaquinaEstados.NIVEL_3) { // Si el puntajeInicial es mayor o igual a 300, estando en MaquinaEstados.NIVEL_3, entonces
       regla.estado = MaquinaEstados.GANANDO_PARTIDA;
     }
     if (regla.vidaInicial <= 0 && (regla.estado == MaquinaEstados.NIVEL_1 || regla.estado == MaquinaEstados.NIVEL_2 || regla.estado == MaquinaEstados.NIVEL_3)) { // Si la vidaInicial es menor o igual a 0, estando en MaquinaEstados.NIVEL_1,MaquinaEstados.NIVEL_2 o MaquinaEstados.NIVEL_3 entonces
