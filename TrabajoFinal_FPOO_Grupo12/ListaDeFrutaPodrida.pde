@@ -20,7 +20,7 @@ public class ListaDeFrutaPodrida {
   }
   //---------Zona de Métodos Accesores---------//
   /**Función que permite obtener el tamaño de la lista (array)*/
-  public int tamanioListaFP() { // Método accesor que permite conocer el tamaño de la lista
+  public int getListaFP() { // Método accesor que permite conocer el tamaño de la lista
     return frutasPodridas.size(); // Retorna el tamaño de la lista
   }
   /**Función que permite obtener el índice de fruta podrida*/

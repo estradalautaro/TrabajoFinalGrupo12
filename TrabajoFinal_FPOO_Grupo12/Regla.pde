@@ -43,7 +43,7 @@ class Regla {
       regla.jugador.mover(); //Ejecuta el método "mover()" del objeto "jugador"
       regla.jugador.esconderCanasta(); //Ejecuta el método "esconderCanasta()" del objeto "jugador"
       /** Recorre el arraylist de Frutas y las remueve al colisionar con el Jugador*/
-      for (int i=0; i<frutas.tamanioLista(); i++) {
+      for (int i=0; i<frutas.getLista(); i++) {
         boolean colisionarJugador = false;
         colisionarJugador = frutas.getFruta(i).colisionarF(jugador);
         if (colisionarJugador==false) {
@@ -57,7 +57,7 @@ class Regla {
         }
       }
       /** Recorre el arraylist de Frutas y las remueve al colisionar con el Escenario*/
-      for (int i=0; i<frutas.tamanioLista(); i++) {
+      for (int i=0; i<frutas.getLista(); i++) {
         boolean colisionarEscenario = false;
         colisionarEscenario = frutas.getFruta(i).colisionarEscenarioF(escenario);
         if (colisionarEscenario==true) {
@@ -65,7 +65,7 @@ class Regla {
         }
       }
       /** Recorre el arraylist de Frutas Podridas y las remueve al colisionar con el Jugador*/
-      for (int i=0; i<frutasPodridas.tamanioListaFP(); i++) {
+      for (int i=0; i<frutasPodridas.getListaFP(); i++) {
         boolean colisionarJugadorFP = false;
         colisionarJugadorFP = frutasPodridas.getFrutaPodrida(i).colisionarFP(jugador);
         if (colisionarJugadorFP==false) {
@@ -78,7 +78,7 @@ class Regla {
         }
       }
       /** Recorre el arraylist de Frutas Podridas y las remueve al colisionar con el Escenario*/
-      for (int i=0; i<frutasPodridas.tamanioListaFP(); i++) {
+      for (int i=0; i<frutasPodridas.getListaFP(); i++) {
         boolean colisionarEscenarioFP = false;
         colisionarEscenarioFP = frutasPodridas.getFrutaPodrida(i).colisionarEscenarioFP(escenario);
         if (colisionarEscenarioFP==true) {
@@ -89,7 +89,7 @@ class Regla {
   }
   /** Método que permite aumentar el puntaje del jugador al colisionar con una fruta */
   public void subirPuntaje() {
-    for (int i=0; i<frutas.tamanioLista(); i++) {
+    for (int i=0; i<frutas.getLista(); i++) {
       if (frutas.getFruta(i).colisionarF(jugador)) {
         puntajeInicial = puntajeInicial + frutas.getFruta(i).getValorPuntaje();
       }
@@ -97,14 +97,14 @@ class Regla {
   }
   /** Método que permite disminuír la vida del jugador al colisionar con una fruta podrida */
   public void bajarVida() {
-    for (int i=0; i<frutasPodridas.tamanioListaFP(); i++) {
+    for (int i=0; i<frutasPodridas.getListaFP(); i++) {
       if (frutasPodridas.getFrutaPodrida(i).colisionarFP(jugador)) {
         vidaInicial --;
       }
     }
   }
   /** Método que permite dibujar los objetos de "nivel1" en el lienzo */
-  public void nivel1() {
+  public void mostrarNivel1() {
     estado = MaquinaEstados.NIVEL_1;
     textAlign(CORNERS);   // Establece la alineación actual para dibujar el texto en el rincon
     String nivel = "Nivel 1";
@@ -131,7 +131,7 @@ class Regla {
     }
   }
   /** Método que permite dibujar los objetos de "nivel2" en el lienzo */
-  public void nivel2() {
+  public void mostrarNivel2() {
     estado = MaquinaEstados.NIVEL_2;
     textAlign(CORNERS); // Establece la alineación actual para dibujar el texto en el rincon
     String nivel = "Nivel 2";
@@ -159,7 +159,7 @@ class Regla {
     }
   }
   /** Método que permite dibujar los objetos en el lienzo */
-  public void nivel3() {
+  public void mostrarNivel3() {
     estado = MaquinaEstados.NIVEL_3;
     textAlign(CORNERS); // Establece la alineación actual para dibujar el texto en el rincon
     String nivel = "Nivel 3";
@@ -188,7 +188,7 @@ class Regla {
       tiempo = millis();
     }
   }
-  public void winner() {
+  public void mostrarWin() {
     estado = MaquinaEstados.GANANDO_PARTIDA;
     imageMode(CORNERS); // Centra la ubicación desde la que se dibujarán las imágenes
     escenario = new Escenario(loadImage("resources/escenario/felicidadesganaste1.png"));  //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto
@@ -196,7 +196,7 @@ class Regla {
     escenario.setTamanio(new PVector(width, height)); // se instancia "escenario" en una posicion PVector definido
     escenario.display();  //Ejecuta el método "display()" del objeto "escenario"
   }
-  public void gameOver() {
+  public void mostrarGameOver() {
     estado = MaquinaEstados.PERDIENDO_PARTIDA;
     imageMode(CORNERS); // Centra la ubicación desde la que se dibujarán las imágenes
     escenario = new Escenario(loadImage("resources/escenario/GameOver.png")); //Se instancia el objeto "escenario" de clase "Escenario" que posee una imagen por defecto
@@ -216,7 +216,7 @@ class Regla {
     imagenVida = loadImage("resources/maincharacter/Canasta.png"); //Se instancia una imagen a "ImagenVida"
   }
   /** Metodo que determina las condiciones de cambio de "MaquinaEstados" */
-  public void condicionEstado() {
+  public void cambiarEstado() {
     if (regla.puntajeInicial >= 100 && regla.estado == MaquinaEstados.NIVEL_1) { // Si el puntajeInicial es mayor o igual a 100, estando en MaquinaEstados.NIVEL_1, entonces
       regla.estado = MaquinaEstados.NIVEL_2;
       actualizarRegla();

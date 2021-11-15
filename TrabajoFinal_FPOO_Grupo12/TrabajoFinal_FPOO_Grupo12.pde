@@ -28,7 +28,7 @@ public void setup() {
 /** Metodo draw*/
 public void draw() {
   background(50); // Se establece el fondo del lienzo
-  regla.condicionEstado();
+  regla.cambiarEstado();
   switch(regla.estado) {
   case 0:
     escenario = new Escenario(loadImage("resources/escenario/portada.png")); //Se instancia una imagen a "escenario"
@@ -42,33 +42,33 @@ public void draw() {
     break; // Sentencia que marca la finalizacion del caso "0"
   case 1:
     regla.display(); // Metodo que permite mostrar los objetos de la clase "regla"
-    regla.nivel1(); // Metodo que permite mostrar el "nivel1"
+    regla.mostrarNivel1(); // Metodo que permite mostrar el "nivel1"
     cancionPantalla.close(); // Metodo que permite detener la musica
     cancionNivel1.play(); // Metodo que permite iniciar la musica
     regla.show = true; // Se instancia el booleano "show" en verdadero
     break; // Sentencia que marca la finalizacion del caso "1"
   case 2:
     regla.display(); // Metodo que permite mostrar los objetos de la clase "regla"
-    regla.nivel2(); // Metodo que permite mostrar el "nivel2"
+    regla.mostrarNivel2(); // Metodo que permite mostrar el "nivel2"
     cancionNivel1.close(); // Metodo que permite detener la musica
     cancionNivel2.play(); // Metodo que permite iniciar la musica
     regla.show = true; // Se instancia el booleano "show" en verdadero
     break; // Sentencia que marca la finalizacion del caso "2"
   case 3:
     regla.display(); // Metodo que permite mostrar los objetos de la clase "regla"
-    regla.nivel3(); // Metodo que permite mostrar el "nivel3"
+    regla.mostrarNivel3(); // Metodo que permite mostrar el "nivel3"
     cancionNivel2.close(); // Metodo que permite detener la musica
     cancionNivel3.play(); // Metodo que permite iniciar la musica
     regla.show = true; // Se instancia el booleano "show" en verdadero
     break; // Sentencia que marca la finalizacion del caso "3"
   case 4:
-    regla.winner(); // Metodo que permite mostrar el "winner"
+    regla.mostrarWin(); // Metodo que permite mostrar el "winner"
     cancionNivel3.close(); // Metodo que permite detener la musica
     cancionVictoria.play(); // Metodo que permite iniciar la musica
     regla.show = false; // Se instancia el booleano "show" en falso
     break; // Sentencia que marca la finalizacion del caso "4"
   case 5:
-    regla.gameOver(); // Metodo que permite mostrar el "gameOver"
+    regla.mostrarGameOver(); // Metodo que permite mostrar el "gameOver"
     cancionNivel1.close(); // Metodo que permite detener la musica
     cancionNivel2.close(); // Metodo que permite detener la musica
     cancionNivel3.close(); // Metodo que permite detener la musica

@@ -20,7 +20,7 @@ public class ListaDeFruta {
   }
   //---------Zona de Métodos Accesores---------//
   /**Función que permite obtener el tamaño de la lista (array)*/
-  public int tamanioLista() { // Método accesor que permite conocer el tamaño de la lista
+  public int getLista() { // Método accesor que permite conocer el tamaño de la lista
     return frutas.size();
   }
   /**Función que permite obtener el índice de fruta*/
